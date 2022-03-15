@@ -1,12 +1,14 @@
 package com.littlekingkong.community.dto;
 
+import org.springframework.stereotype.Component;
+
 /**
  * *
  *
  * @author 邹玉沛
  * @date 2022/3/11 23:58*@since 1.0.0
  */
-
+@Component
 public class GitHubUser {
     private String name;
     private Long id;

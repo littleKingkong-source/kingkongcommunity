@@ -1,12 +1,14 @@
 package com.littlekingkong.community.dto;
 
+import org.springframework.stereotype.Component;
+
 /**
  * *
  *
  * @author 邹玉沛
  * @date 2022/3/11 22:49*@since 1.0.0
  */
-
+@Component
 public class AccessTokenDTO {
     private String client_id;
     private String client_secret;
