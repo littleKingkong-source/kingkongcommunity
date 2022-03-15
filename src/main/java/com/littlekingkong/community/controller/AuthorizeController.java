@@ -5,6 +5,7 @@ import com.littlekingkong.community.dto.GitHubUser;
 import com.littlekingkong.community.model.User;
 import com.littlekingkong.community.provider.GitHubProvider;
 import com.littlekingkong.community.service.UserService;
+import com.sun.deploy.net.HttpResponse;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
 /**
@@ -44,7 +47,8 @@ public class AuthorizeController {
     @GetMapping("/callback")
     public String callback(@RequestParam(name = "code") String code,
                            @RequestParam(name = "state") String state,
-                            HttpServletRequest request) {
+                            HttpServletRequest request,
+                            HttpServletResponse response) {
 
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
 
@@ -59,16 +63,16 @@ public class AuthorizeController {
             User user = new User();
             user.setAccount_id(String.valueOf(gitHubUser.getId()));
             user.setName(gitHubUser.getName());
-            user.setToken(UUID.randomUUID().toString());
+            String token = UUID.randomUUID().toString();
+            user.setToken(token);
             user.setGmt_create(System.currentTimeMillis());
             user.setGmt_modified(user.getGmt_create());
             userService.insertUser(user);
 
-            //登录成功，写cookie 和 session
-            System.out.println(gitHubUser.getName()+gitHubUser.getBio()+gitHubUser.getId());
-            System.out.println(gitHubUser);
-            //登录成功，写cookie和 session
-            request.getSession().setAttribute("gitHubUser",gitHubUser);
+            //自动写入Cookie
+            response.addCookie(new Cookie("token",token));
+
+
             return "redirect:/";
         }else {
             //登陆失败，重新登录

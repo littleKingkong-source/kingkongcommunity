@@ -18,9 +18,18 @@ import javax.annotation.Resource;
 public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
+
+    //实现新用户登录，向数据库记录信息
     @Override
     public Integer insertUser(User user) {
         return userMapper.insertUser(user);
+    }
+
+
+    //自动获取token
+    @Override
+    public User findToken(String token) {
+        return userMapper.findByTonken(token);
     }
 
 }

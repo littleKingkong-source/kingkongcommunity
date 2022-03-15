@@ -8,6 +8,11 @@
       insert into user(account_id,name,token,gmt_create,gmt_modified) values(#{account_id},#{name},#{token},#{gmt_create},#{gmt_modified})
   </insert>
 
+    <select id="findByTonken" resultType="com.littlekingkong.community.model.User">
+        select id,account_id,name,token,gmt_create,gmt_modified
+        from user
+        where token = #{token}
+    </select>
 
 
 </mapper>

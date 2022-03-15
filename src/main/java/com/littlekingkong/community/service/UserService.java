@@ -5,4 +5,5 @@ import org.apache.ibatis.annotations.Param;
 
 public interface UserService {
     Integer insertUser(@Param("user") User user);
+    User findToken(String token);
 }
