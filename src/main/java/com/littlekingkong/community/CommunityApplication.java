@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.littlekingkong.community.mapper")
 @MapperScan("com.littlekingkong.community.dao")
 public class CommunityApplication {
     public static void main(String[] args) {

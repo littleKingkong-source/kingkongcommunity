@@ -1,4 +1,4 @@
-
+use kingforum;
 CREATE TABLE USER
 (
     ID int AUTO_INCREMENT PRIMARY KEY NOT NULL ,

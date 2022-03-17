@@ -39,7 +39,7 @@
             <scope>test</scope>
         </dependency>
 
-    <!--okhttp3-->
+        <!--okhttp3-->
         <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
@@ -95,9 +95,29 @@
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-            <version>8.4.2</version>
+            <version>8.0.3</version>
         </dependency>
 
+        <!--引入markdown-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.22</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <build>
@@ -111,7 +131,7 @@
             <plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
-                <version>5.2.4</version>
+                <version>8.0.3</version>
                 <configuration>
                     <url>jdbc:mysql://localhost:3306/kingforum?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=GMT</url>
                     <user>root</user>
