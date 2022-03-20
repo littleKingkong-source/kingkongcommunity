@@ -9,4 +9,17 @@
         insert into question(title, description, gmt_create,gmt_modified,creator,tag)
         values(#{title},#{description},#{gmt_create},#{gmt_modified},#{creator},#{tag})
     </insert>
+    <select id="list" resultType="com.littlekingkong.community.model.Question">
+        select *
+        from question
+        limit #{offset}, #{size};
+    </select>
+    <select id="count" resultType="java.lang.Integer">
+        select count(1) from question
+    </select>
+    <select id="listQuestion" resultType="com.littlekingkong.community.model.Question">
+        select *
+        from question
+    </select>
+
 </mapper>

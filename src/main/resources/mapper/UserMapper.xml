@@ -13,6 +13,11 @@
         from user
         where token = #{token}
     </select>
+    <select id="findById" resultType="com.littlekingkong.community.model.User">
+        select *
+        from user
+        where id = #{id}
+    </select>
 
 
 </mapper>

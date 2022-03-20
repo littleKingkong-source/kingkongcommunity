@@ -6,4 +6,6 @@ import org.apache.ibatis.annotations.Param;
 public interface UserMapper {
     Integer insertUser(User user);
     User findByTonken(String token);
+
+    User findById(@Param("id") Integer id);
 }
