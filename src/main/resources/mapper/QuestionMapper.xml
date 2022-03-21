@@ -21,7 +21,19 @@
     <select id="listQuestion2" resultType="com.littlekingkong.community.model.Question">
         select *
         from question
-                 limit #{offset}, #{size}
+        limit #{offset}, #{size}
     </select>
+    <select id="listUserQuestion" resultType="com.littlekingkong.community.model.Question">
+        select *
+        from question
+        where  creator = #{userId}
+        limit #{offset}, #{size}
+    </select>
+    <select id="countById" resultType="java.lang.Integer">
+        select count(1)
+        from question
+        where creator = #{userId};
+    </select>
+
 
 </mapper>

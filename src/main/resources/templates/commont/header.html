@@ -5,9 +5,10 @@
     <title>导航栏</title>
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon"/>
     <script src="/jquery-3.6.0/jquery-3.6.0.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-
+    <!--    <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon"/>-->
 </head>
 <body>
 <nav class="navbar navbar-default" th:fragment="top">
@@ -20,7 +21,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">KingForum</a>
+            <a class="navbar-brand" href="/">KingForum</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -34,7 +35,7 @@
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li th:if="session.user != null">
-                    <a href="/publish">提问</a>
+                    <a href="/publish"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>&nbsp;&nbsp;提问</a>
                 </li>
                 <li class="dropdown" th:if="${session.user != null}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -44,7 +45,6 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="/profile/question">我的问题</a></li>
-                        <li><a href="#">个人资料</a></li>
                         <li><a href="#">退出登录</a></li>
                     </ul>
                 </li>

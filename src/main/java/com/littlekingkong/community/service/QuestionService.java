@@ -17,4 +17,6 @@ public interface QuestionService {
     PaginationDTO list2(@Param("page") Integer page, @Param("size") Integer size);
 
     List<QuestionDTO> listQuestion(Integer page, Integer size);
+
+    PaginationDTO listUserQuestion(@Param("userId") Integer userId, @Param("page") Integer page, @Param("size") Integer size);
 }

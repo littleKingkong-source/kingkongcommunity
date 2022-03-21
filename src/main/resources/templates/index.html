@@ -66,7 +66,15 @@
                 <div class="media-body">
                     <h4 class="media-heading" th:text="${question.title}"></h4>
                     <span th:text="${question.description}"></span> <br />
-                    <span class="text-desc"><span th:text="${question.comment_count}">0</span>个评论 • <span th:text="${question.view_count}">0</span> 次浏览 • <span th:text="${#dates.format(question.gmt_create,'yyyy MM dd HH:MM')}"></span></span>
+                    <span class="text-desc">
+                        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                        <span th:text="${question.comment_count}">0</span>
+                        个评论 •
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        <span th:text="${question.view_count}">0</span>
+                        次浏览 •
+                        <span th:text="${#dates.format(question.gmt_create,'yyyy MM dd HH:MM')}"></span>
+                    </span>
                 </div>
             </div>
             <nav aria-label="Page navigation">

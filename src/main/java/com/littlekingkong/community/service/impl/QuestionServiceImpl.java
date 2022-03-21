@@ -83,4 +83,35 @@ public class QuestionServiceImpl implements QuestionService {
         return questionDTOList;
     }
 
+    @Override
+    public PaginationDTO listUserQuestion(Integer userId, Integer page, Integer size) {
+        PaginationDTO paginationDTO = new PaginationDTO();
+        Integer count = questionMapper.countById(userId);
+        //Integer count = questionMapper.count();
+        paginationDTO.setPagination(count, page, size);
+
+        if (page < 1) {
+            page = 1;
+        }
+
+        if (page > paginationDTO.getTotalPage()) {
+            page = paginationDTO.getTotalPage();
+        }
+        // 展示的页数，等于 （页数 - 1） * 每页数目
+        Integer offset = (page - 1) * size;
+        List<Question> questions = questionMapper.listUserQuestion(userId,offset, size);
+        List<QuestionDTO> questionDTOList = new ArrayList<>();
+
+        for (Question question : questions) {
+            User user = userMapper.findById(question.getCreator());
+            QuestionDTO questionDTO = new QuestionDTO();
+            BeanUtils.copyProperties(question, questionDTO);
+            questionDTO.setUser(user);
+            questionDTOList.add(questionDTO);
+        }
+        paginationDTO.setQuestions(questionDTOList);
+
+        return paginationDTO;
+    }
+
 }
