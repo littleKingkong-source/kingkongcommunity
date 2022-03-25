@@ -4,8 +4,6 @@ import com.littlekingkong.community.dto.PaginationDTO;
 import com.littlekingkong.community.dto.QuestionDTO;
 import com.littlekingkong.community.model.Question;
 import org.apache.ibatis.annotations.Param;
-import org.h2.mvstore.Page;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
