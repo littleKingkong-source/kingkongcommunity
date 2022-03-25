@@ -33,7 +33,7 @@ public class AuthorizeController {
 
     @Value("${github.client.id}")
     private String clientId;
-    @Value("/github.client.secret")
+    @Value("${github.client.secret}")
     private String clientSecret;
     @Value("${github.redirect.uri}")
     private String redirectUri;
@@ -47,7 +47,6 @@ public class AuthorizeController {
     @GetMapping("/callback")
     public String callback(@RequestParam(name = "code") String code,
                            @RequestParam(name = "state") String state,
-                            HttpServletRequest request,
                             HttpServletResponse response) {
 
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
@@ -58,11 +57,11 @@ public class AuthorizeController {
         accessTokenDTO.setState(state);
         String accessToken = gitHubProvider.getAccessToken(accessTokenDTO);
         GitHubUser gitHubUser = gitHubProvider.getUser(accessToken);
+        System.out.println(gitHubUser.toString());
         if(gitHubUser != null) {
             User user = new User();
             String token = UUID.randomUUID().toString();
-            //user.setAccount_id(String.valueOf(gitHubUser.getId()));
-            user.setAccount_id(String.valueOf(user.getId()));
+            user.setAccount_id(String.valueOf(gitHubUser.getId()));
             user.setName(gitHubUser.getName());
             user.setToken(token);
             user.setAvatar_url(gitHubUser.getAvatar_url());
