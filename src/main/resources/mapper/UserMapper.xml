@@ -8,6 +8,12 @@
       insert into user(account_id,name,token,gmt_create,gmt_modified,avatar_url) values(#{account_id},#{name},#{token},#{gmt_create},#{gmt_modified},#{avatar_url})
   </insert>
 
+    <update id="update">
+        update user
+        set name = #{name}, token = #{token}, gmt_modified = #{gmt_modified}, avatar_url = #{avatar_url}
+        where id = #{id}
+    </update>
+
     <select id="findByTonken" resultType="com.littlekingkong.community.model.User">
         select id,account_id,name,token,gmt_create,gmt_modified
         from user
@@ -17,6 +23,11 @@
         select *
         from user
         where id = #{id}
+    </select>
+    <select id="findByAccountId" resultType="com.littlekingkong.community.model.User">
+        select *
+        from user
+        where account_id = #{account_id}
     </select>
 
 

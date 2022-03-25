@@ -83,6 +83,7 @@ public class QuestionServiceImpl implements QuestionService {
         return questionDTOList;
     }
 
+    //完成我的问题展示功能
     @Override
     public PaginationDTO listUserQuestion(Integer userId, Integer page, Integer size) {
         PaginationDTO paginationDTO = new PaginationDTO();
@@ -99,6 +100,9 @@ public class QuestionServiceImpl implements QuestionService {
         }
         // 展示的页数，等于 （页数 - 1） * 每页数目
         Integer offset = (page - 1) * size;
+        if(offset < 0) {
+            offset = 0;
+        }
         List<Question> questions = questionMapper.listUserQuestion(userId,offset, size);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
@@ -113,5 +117,18 @@ public class QuestionServiceImpl implements QuestionService {
 
         return paginationDTO;
     }
+
+    //具体问题展示功能
+    @Override
+    public QuestionDTO getById(Integer id) {
+        Question question = questionMapper.getById(id);
+        QuestionDTO questionDTO = new QuestionDTO();
+        BeanUtils.copyProperties(question, questionDTO);
+        User user = userMapper.findById(question.getCreator());
+        questionDTO.setUser(user);
+        return questionDTO;
+    }
+
+
 
 }

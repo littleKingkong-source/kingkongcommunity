@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 public class GitHubUser {
     private String name;
     private Long id;
+    //private Integer id;
     private String bio;
     private String avatar_url;
 

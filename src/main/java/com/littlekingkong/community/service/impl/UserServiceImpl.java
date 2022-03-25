@@ -32,4 +32,23 @@ public class UserServiceImpl implements UserService {
         return userMapper.findByTonken(token);
     }
 
+    //判断数据库是否存在该用户，存在则更新token
+    @Override
+    public void creatOrUpdate(User user) {
+        User dbUser = userMapper.findByAccountId(String.valueOf(user.getId()));
+        if (dbUser == null) {
+            //用户不存在则，视为注册
+            user.setGmt_create(System.currentTimeMillis());
+            user.setGmt_modified(user.getGmt_create());
+            userMapper.insertUser(user);
+        } else {
+            dbUser.setGmt_modified(System.currentTimeMillis());
+            dbUser.setAvatar_url(user.getAvatar_url());
+            dbUser.setName(user.getName());
+            dbUser.setToken(user.getToken());
+            //用户存在，更新
+            userMapper.update(dbUser);
+        }
+    }
+
 }
