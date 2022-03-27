@@ -51,7 +51,6 @@ public class GiteeController {
             user.setToken(token);
             user.setAvatar_url(giteeUser.getAvatar_url());
             userService.creatOrUpdate(user);
-            System.out.println(user);
             //自动写入Cookie
             Cookie cookie = new Cookie("token",token);
             response.addCookie(cookie);

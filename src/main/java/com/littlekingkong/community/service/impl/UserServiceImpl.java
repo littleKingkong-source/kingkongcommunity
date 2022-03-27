@@ -44,6 +44,7 @@ public class UserServiceImpl implements UserService {
         } else {
             dbUser.setGmt_modified(System.currentTimeMillis());
             dbUser.setAvatar_url(user.getAvatar_url());
+            dbUser.setBio(user.getBio());
             dbUser.setName(user.getName());
             dbUser.setToken(user.getToken());
             //用户存在，更新

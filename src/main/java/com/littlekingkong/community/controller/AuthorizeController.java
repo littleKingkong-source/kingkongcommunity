@@ -65,6 +65,7 @@ public class AuthorizeController {
             user.setName(gitHubUser.getName());
             user.setToken(token);
             user.setAvatar_url(gitHubUser.getAvatar_url());
+            user.setBio(gitHubUser.getBio());
             userService.creatOrUpdate(user);
             //自动写入Cookie
             response.addCookie(new Cookie("token",token));

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,15 +16,13 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * *
+ * *flyway_schema_history
  *
  * @author 邹玉沛
  * @date 2022/3/16 20:50*@since 1.0.0
  */
 @Controller
 public class PublishController {
-    @Autowired
-    private UserService userService;
 
     @Autowired
     private QuestionService questionService;
@@ -37,6 +36,7 @@ public class PublishController {
     public String publish(@RequestParam(value = "title", required = false) String title,
                           @RequestParam(value = "description", required = false) String description,
                           @RequestParam(value = "tag", required = false) String tag,
+                          @RequestParam(value = "id", required = false) Integer id,
                           HttpServletRequest request,
                           Model model) {
         model.addAttribute("title", title);
@@ -68,9 +68,25 @@ public class PublishController {
         question.setCreator(user.getId());
         question.setGmt_create(System.currentTimeMillis());
         question.setGmt_modified(question.getGmt_create());
-        questionService.createQuestion(question);
+
+        questionService.createOrUpdate(question);
+
+        //questionService.createQuestion(question);
         return "redirect:/";
 
-
     }
+
+    @GetMapping("/publish/{id}")
+    public String edit(@PathVariable(name = "id") Integer id,
+                       Model model) {
+
+        Question question = questionService.getQuestionById(id);
+        System.out.println(question);
+        model.addAttribute("title", question.getTitle());
+        model.addAttribute("description", question.getDescription());
+        model.addAttribute("tag", question.getTag());
+        model.addAttribute("id", question.getId());
+        return "editor/publish";
+    }
+
 }

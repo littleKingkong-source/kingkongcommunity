@@ -32,10 +32,21 @@ public class QuestionServiceImpl implements QuestionService {
     //创建问题
     @Override
     public Integer createQuestion(Question question) {
-
         return questionMapper.create(question);
     }
 
+
+    @Override
+    public void createOrUpdate(Question question) {
+        //如果id为空证明不存在，则新建
+        if (question.getId() == null) {
+                questionMapper.create(question);
+        } else {
+            // id 不为空，进行问题更新
+            question.setGmt_modified(System.currentTimeMillis());
+            questionMapper.update(question);
+        }
+    }
 
     @Override
     public PaginationDTO list2(Integer page, Integer size) {
@@ -118,7 +129,7 @@ public class QuestionServiceImpl implements QuestionService {
         return paginationDTO;
     }
 
-    //具体问题展示功能
+    //具体问题展示功能,根据id获取Question，再利用传输层QuestionDTO，把问题发起者信息封装进去
     @Override
     public QuestionDTO getById(Integer id) {
         Question question = questionMapper.getById(id);
@@ -127,6 +138,12 @@ public class QuestionServiceImpl implements QuestionService {
         User user = userMapper.findById(question.getCreator());
         questionDTO.setUser(user);
         return questionDTO;
+    }
+
+    @Override
+    public Question getQuestionById(Integer id) {
+        Question question = questionMapper.getById(id);
+        return question;
     }
 
 

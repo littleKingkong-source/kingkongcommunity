@@ -19,4 +19,9 @@ public interface QuestionService {
     PaginationDTO listUserQuestion(@Param("userId") Integer userId, @Param("page") Integer page, @Param("size") Integer size);
 
     QuestionDTO getById(@Param("id") Integer id);
+
+    Question getQuestionById(@Param("id") Integer id);
+
+
+    void createOrUpdate(Question question);
 }

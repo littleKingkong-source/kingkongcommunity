@@ -30,6 +30,7 @@ public class ProfileController {
     @Autowired
     private QuestionService questionService;
 
+    //分页功能
     @GetMapping("/profile/{action}")
     public String profile(@PathVariable(name = "action") String action, Model model,
                           HttpServletRequest request,

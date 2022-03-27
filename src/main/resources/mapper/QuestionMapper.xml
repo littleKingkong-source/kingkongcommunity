@@ -9,6 +9,11 @@
         insert into question(title, description, gmt_create,gmt_modified,creator,tag)
         values(#{title},#{description},#{gmt_create},#{gmt_modified},#{creator},#{tag})
     </insert>
+    <update id="update">
+        update question
+        set title = #{title}, description = #{description}, gmt_modified = #{gmt_modified},tag = #{tag}
+        where id = #{id}
+</update>
 
     <select id="count" resultType="java.lang.Integer">
         select count(1) from question

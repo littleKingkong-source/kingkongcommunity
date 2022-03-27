@@ -22,6 +22,8 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
 
+
+    //进入问题详情页面
     @GetMapping("/question/{id}")
     public String question(@PathVariable(name = "id") Integer id,
                            Model model) {
