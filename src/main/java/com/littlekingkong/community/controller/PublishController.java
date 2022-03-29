@@ -37,6 +37,9 @@ public class PublishController {
                           @RequestParam(value = "description", required = false) String description,
                           @RequestParam(value = "tag", required = false) String tag,
                           @RequestParam(value = "id", required = false) Integer id,
+                          @RequestParam(value = "comment_count",defaultValue = "0",required = false) Integer comment_count,
+                          @RequestParam(value = "view_count",defaultValue = "0",required = false) Integer view_count,
+                          @RequestParam(value = "like_count",defaultValue = "0",required = false) Integer like_count,
                           HttpServletRequest request,
                           Model model) {
         model.addAttribute("title", title);
@@ -69,6 +72,9 @@ public class PublishController {
         question.setGmt_create(System.currentTimeMillis());
         question.setGmt_modified(question.getGmt_create());
         question.setId(id);
+        question.setLike_count(like_count);
+        question.setComment_count(comment_count);
+        question.setView_count(view_count);
         questionService.createOrUpdate(question);
 
         //questionService.createQuestion(question);

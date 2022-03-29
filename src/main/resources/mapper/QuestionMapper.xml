@@ -6,8 +6,8 @@
 
 
     <insert id="create" parameterType="com.littlekingkong.community.model.Question">
-        insert into question(title, description, gmt_create,gmt_modified,creator,tag)
-        values(#{title},#{description},#{gmt_create},#{gmt_modified},#{creator},#{tag})
+        insert into question(title, description, gmt_create,gmt_modified,creator,tag,comment_count,view_count,like_count)
+        values(#{title},#{description},#{gmt_create},#{gmt_modified},#{creator},#{tag},#{comment_count},#{view_count},#{like_count})
     </insert>
     <update id="update">
         update question
