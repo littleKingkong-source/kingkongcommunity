@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     //判断数据库是否存在该用户，存在则更新token
     @Override
     public void creatOrUpdate(User user) {
-        User dbUser = userMapper.findByAccountId(String.valueOf(user.getId()));
+        User dbUser = userMapper.findByAccountId(user.getAccount_id());
         if (dbUser == null) {
             //用户不存在则，视为注册
             user.setGmt_create(System.currentTimeMillis());
