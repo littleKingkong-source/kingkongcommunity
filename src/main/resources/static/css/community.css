@@ -30,3 +30,6 @@ body {
     font-size: 14px;
     text-decoration: none;
 }
+.jumbotron {
+    margin: 50px;
+}

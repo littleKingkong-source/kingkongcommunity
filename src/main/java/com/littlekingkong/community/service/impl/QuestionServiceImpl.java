@@ -4,6 +4,8 @@ import com.littlekingkong.community.dao.QuestionMapper;
 import com.littlekingkong.community.dao.UserMapper;
 import com.littlekingkong.community.dto.PaginationDTO;
 import com.littlekingkong.community.dto.QuestionDTO;
+import com.littlekingkong.community.exception.CustomizeErrorCode;
+import com.littlekingkong.community.exception.CustomizeException;
 import com.littlekingkong.community.model.Question;
 import com.littlekingkong.community.model.User;
 import com.littlekingkong.community.service.QuestionService;
@@ -44,7 +46,11 @@ public class QuestionServiceImpl implements QuestionService {
         } else {
             // id 不为空，进行问题更新
             question.setGmt_modified(System.currentTimeMillis());
-            questionMapper.update(question);
+            int updated = questionMapper.update(question);
+            System.out.println(updated);
+            if (updated != 1) {
+                throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+            }
         }
     }
 
@@ -133,6 +139,11 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public QuestionDTO getById(Integer id) {
         Question question = questionMapper.getById(id);
+
+        if (question == null) {
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+        }
+
         QuestionDTO questionDTO = new QuestionDTO();
         BeanUtils.copyProperties(question, questionDTO);
         User user = userMapper.findById(question.getCreator());
@@ -145,7 +156,5 @@ public class QuestionServiceImpl implements QuestionService {
         Question question = questionMapper.getById(id);
         return question;
     }
-
-
 
 }

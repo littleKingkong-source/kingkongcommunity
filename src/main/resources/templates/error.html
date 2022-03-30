@@ -5,8 +5,8 @@
 <!--    <title th:text="${question.title}"></title>-->
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="/css/community.css">
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/community.css">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"/>
     <!--    <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon"/>-->
@@ -17,7 +17,13 @@
 
 <body>
 <!--引入头部导航栏-->
-    <div th:insert="/commont/header :: top"></div>
+<div th:insert="/commont/header :: top"></div>
 
+
+<div class="jumbotron">
+    <h1>出错啦! ! !</h1>
+    <p th:text="${message}">服务太热啦，要不然稍后再来试试~</p>
+    <p><a class="btn btn-primary btn-lg" href="/" role="button">回到主页</a></p>
+</div>
 </body>
 </html>
