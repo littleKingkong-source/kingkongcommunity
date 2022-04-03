@@ -23,4 +23,8 @@ public interface QuestionService {
     Question getQuestionById(@Param("id") Integer id);
 
     void createOrUpdate(Question question);
+
+
+
+    void intQuestionView(@Param("id") Integer id);
 }

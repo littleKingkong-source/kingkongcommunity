@@ -1,5 +1,4 @@
 package com.littlekingkong.community.dao;
-import com.littlekingkong.community.dto.QuestionDTO;
 import com.littlekingkong.community.model.Question;
 import org.apache.ibatis.annotations.Param;
 
@@ -24,4 +23,6 @@ public interface QuestionMapper {
     Question getById(@Param("id") Integer id);
 
     Integer update(Question question);
+
+    Integer inView(Question question);
 }

@@ -14,6 +14,12 @@
         set title = #{title}, description = #{description}, gmt_modified = #{gmt_modified},tag = #{tag}
         where id = #{id}
 </update>
+    <update id="inView">
+        update question
+        set view_count = view_count + #{view_count}
+        where id = #{id}
+    </update>
+
 
     <select id="count" resultType="java.lang.Integer">
         select count(1) from question

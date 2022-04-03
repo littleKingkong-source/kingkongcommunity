@@ -10,7 +10,6 @@ import com.littlekingkong.community.model.Question;
 import com.littlekingkong.community.model.User;
 import com.littlekingkong.community.service.QuestionService;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -37,6 +36,17 @@ public class QuestionServiceImpl implements QuestionService {
         return questionMapper.create(question);
     }
 
+
+    //增加浏览数量
+
+
+    @Override
+    public void intQuestionView(Integer id) {
+        Question question = new Question();
+        question.setId(id);
+        question.setView_count(1);
+        questionMapper.inView(question);
+    }
 
     @Override
     public void createOrUpdate(Question question) {
