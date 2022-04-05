@@ -1,0 +1,1 @@
+alter table question modify id BIGINT auto_increment;

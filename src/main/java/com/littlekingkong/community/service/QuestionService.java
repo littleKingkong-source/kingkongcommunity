@@ -16,15 +16,15 @@ public interface QuestionService {
 
     List<QuestionDTO> listQuestion(Integer page, Integer size);
 
-    PaginationDTO listUserQuestion(@Param("userId") Integer userId, @Param("page") Integer page, @Param("size") Integer size);
+    PaginationDTO listUserQuestion(@Param("userId") Long userId, @Param("page") Integer page, @Param("size") Integer size);
 
-    QuestionDTO getById(@Param("id") Integer id);
+    QuestionDTO getById(@Param("id") Long id);
 
-    Question getQuestionById(@Param("id") Integer id);
+    Question getQuestionById(@Param("id") Long id);
 
     void createOrUpdate(Question question);
 
 
 
-    void intQuestionView(@Param("id") Integer id);
+    void intQuestionView(@Param("id") Long id);
 }

@@ -10,7 +10,7 @@ public interface UserMapper {
     User findByTonken(String token);
 
     //根据用户id查询用户
-    User findById(@Param("id") Integer id);
+    User findById(@Param("id") Long id);
 
     //根据accountId查询用户
     User findByAccountId(@Param("account_id") String account_id);

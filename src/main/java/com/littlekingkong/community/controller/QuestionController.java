@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.naming.Name;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * *
@@ -25,10 +26,12 @@ public class QuestionController {
 
     //进入问题详情页面
     @GetMapping("/question/{id}")
-    public String question(@PathVariable(name = "id") Integer id,
-                           Model model) {
+    public String question(@PathVariable(name = "id") Long id,
+                           Model model,HttpServletRequest request) {
         questionService.intQuestionView(id);
         QuestionDTO questionDTO = questionService.getById(id);
+        System.out.println(id);
+        System.out.println(request.getSession().getAttribute("user"));
         model.addAttribute("question", questionDTO);
         return "question";
     }

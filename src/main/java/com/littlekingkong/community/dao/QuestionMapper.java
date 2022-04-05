@@ -16,13 +16,17 @@ public interface QuestionMapper {
 
     List<Question> listQuestion2(@Param("offset") Integer offset, @Param("size") Integer size);;
 
-    List<Question> listUserQuestion(@Param("userId") Integer userId, @Param("offset") Integer offset, @Param("size") Integer size);
+    List<Question> listUserQuestion(@Param("userId") Long userId, @Param("offset") Integer offset, @Param("size") Integer size);
 
-    Integer countById(@Param("userId") Integer userId);
+    Integer countById(@Param("userId") Long userId);
 
-    Question getById(@Param("id") Integer id);
+    Question getById(@Param("id") Long id);
 
     Integer update(Question question);
 
     Integer inView(Question question);
+
+    Integer intCommentCount(Question record);
+
+
 }

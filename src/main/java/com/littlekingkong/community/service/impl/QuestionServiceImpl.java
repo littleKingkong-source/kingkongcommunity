@@ -41,7 +41,7 @@ public class QuestionServiceImpl implements QuestionService {
 
 
     @Override
-    public void intQuestionView(Integer id) {
+    public void intQuestionView(Long id) {
         Question question = new Question();
         question.setId(id);
         question.setView_count(1);
@@ -112,7 +112,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     //完成我的问题展示功能
     @Override
-    public PaginationDTO listUserQuestion(Integer userId, Integer page, Integer size) {
+    public PaginationDTO listUserQuestion(Long userId, Integer page, Integer size) {
         PaginationDTO paginationDTO = new PaginationDTO();
         Integer count = questionMapper.countById(userId);
         //Integer count = questionMapper.count();
@@ -147,7 +147,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     //具体问题展示功能,根据id获取Question，再利用传输层QuestionDTO，把问题发起者信息封装进去
     @Override
-    public QuestionDTO getById(Integer id) {
+    public QuestionDTO getById(Long id) {
         Question question = questionMapper.getById(id);
 
         if (question == null) {
@@ -157,12 +157,13 @@ public class QuestionServiceImpl implements QuestionService {
         QuestionDTO questionDTO = new QuestionDTO();
         BeanUtils.copyProperties(question, questionDTO);
         User user = userMapper.findById(question.getCreator());
+        System.out.println(user.getId() + " " + questionDTO.getCreator());
         questionDTO.setUser(user);
         return questionDTO;
     }
 
     @Override
-    public Question getQuestionById(Integer id) {
+    public Question getQuestionById(Long id) {
         Question question = questionMapper.getById(id);
         return question;
     }

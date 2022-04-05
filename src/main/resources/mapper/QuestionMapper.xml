@@ -20,6 +20,12 @@
         where id = #{id}
     </update>
 
+    <update id="intCommentCount" parameterType="com.littlekingkong.community.model.Question">
+        update question
+        set comment_count = comment_count + #{comment_count}
+        where id = #{id}
+    </update>
+
 
     <select id="count" resultType="java.lang.Integer">
         select count(1) from question
