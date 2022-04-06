@@ -50,6 +50,11 @@ a:hover{
     float: right;
     margin-top: 10px;
     margin-bottom: 10px;
+    box-shadow: none;
+    outline: none;
+}
+.question_title {
+    margin-top: 25px;
 }
 .comment_sp {
     margin-top: 10px;
@@ -66,4 +71,16 @@ a:hover{
 
 .menu svg:hover {
     color: #b6d4fe;
+}
+svg:hover {
+    cursor: pointer;
+    color: blueviolet;
+}
+.text_ioc {
+    margin-top: 10px;
+}
+
+button{
+    box-shadow: none;
+    outline: none;
 }

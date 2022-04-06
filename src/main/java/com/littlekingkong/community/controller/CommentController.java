@@ -6,6 +6,7 @@ import com.littlekingkong.community.exception.CustomizeErrorCode;
 import com.littlekingkong.community.model.Comment;
 import com.littlekingkong.community.model.User;
 import com.littlekingkong.community.service.CommentService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,6 +37,9 @@ public class CommentController {
         System.out.println(user);
         if (user == null) {
             return ResultDTO.errorOf(CustomizeErrorCode.NOT_LOGIN);
+        }
+        if (commentDTO == null || StringUtils.isBlank(commentDTO.getContent())) {
+            return ResultDTO.errorOf(CustomizeErrorCode.COMMENT_IS_NULL);
         }
         Comment comment = new Comment();
         comment.setParent_id(commentDTO.getParent_id());
