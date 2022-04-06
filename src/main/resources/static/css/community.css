@@ -27,7 +27,9 @@ body {
 .profile .section {
     margin-top: 15px;
 }
-
+a:hover{
+    text-decoration: none;
+}
 .community-menu {
     color: #999;
     font-size: 14px;
@@ -39,9 +41,29 @@ body {
 .comment {
     margin: 10px 0;
 }
-
+.comments {
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
 .btn-comment {
     float: right;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+.comment_sp {
+    margin-top: 10px;
+}
+.menu {
+    color: #999;
+}
+
+.menu svg {
+    margin-right: 4px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.menu svg:hover {
+    color: #b6d4fe;
 }

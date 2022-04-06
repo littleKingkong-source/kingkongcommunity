@@ -14,4 +14,9 @@
         from comment
         where parent_id = #{parent_id}
     </select>
+    <select id="selectByQuestion" resultType="com.littlekingkong.community.model.Comment">
+        select *
+        from comment
+        where parent_id = #{parent_id} and type = #{type}
+    </select>
 </mapper>

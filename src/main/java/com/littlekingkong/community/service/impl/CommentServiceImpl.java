@@ -2,19 +2,28 @@ package com.littlekingkong.community.service.impl;
 
 import com.littlekingkong.community.dao.CommentMapper;
 import com.littlekingkong.community.dao.QuestionMapper;
+import com.littlekingkong.community.dao.UserMapper;
+import com.littlekingkong.community.dto.CommentQuestionDTO;
 import com.littlekingkong.community.enums.CommentTypeEnum;
 import com.littlekingkong.community.exception.CustomizeErrorCode;
 import com.littlekingkong.community.exception.CustomizeException;
 import com.littlekingkong.community.model.Comment;
 import com.littlekingkong.community.model.Question;
+import com.littlekingkong.community.model.User;
 import com.littlekingkong.community.service.CommentService;
 import net.bytebuddy.implementation.bytecode.Throw;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.yaml.snakeyaml.comments.CommentType;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * *
@@ -28,6 +37,32 @@ public class CommentServiceImpl implements CommentService {
     private CommentMapper commentMapper;
     @Resource
     private  QuestionMapper questionMapper;
+
+    @Resource
+    private UserMapper userMapper;
+    @Override
+    public List<CommentQuestionDTO>  listByQuestionId(Long id) {
+        // 获取评论内容
+        Comment Questioncomment = new Comment();
+        Questioncomment.setType(CommentTypeEnum.QUESTION.getType());
+        Questioncomment.setParent_id(id);
+        List<Comment> comments = commentMapper.selectByQuestion(Questioncomment);
+        // 获取去重的评论人
+        Set<Long> commentators = comments.stream().map(comment->comment.getCommentator()).collect(Collectors.toSet());
+        List<Long> userIds = new ArrayList<>();
+        userIds.addAll(commentators);
+        List<User> users = userMapper.selectByList(userIds);
+        Map<Long, User> userMap = users.stream().collect(Collectors.toMap(user->user.getId(),user->user));
+
+        // 转comment 为 commentQuestionDTO
+        List<CommentQuestionDTO> commentDTOS = comments.stream().map(comment-> {
+            CommentQuestionDTO commentQuestionDTO = new CommentQuestionDTO();
+            BeanUtils.copyProperties(comment, commentQuestionDTO);
+            commentQuestionDTO.setUser(userMap.get(comment.getCommentator()));
+            return commentQuestionDTO;
+        }).collect(Collectors.toList());
+        return commentDTOS;
+    }
 
     @Transactional
     @Override

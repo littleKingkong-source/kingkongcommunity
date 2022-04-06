@@ -1,6 +1,9 @@
 package com.littlekingkong.community.controller;
 
+import com.littlekingkong.community.dto.CommentDTO;
+import com.littlekingkong.community.dto.CommentQuestionDTO;
 import com.littlekingkong.community.dto.QuestionDTO;
+import com.littlekingkong.community.service.CommentService;
 import com.littlekingkong.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.naming.Name;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * *
@@ -23,6 +27,8 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
 
+    @Autowired
+    private CommentService commentService;
 
     //进入问题详情页面
     @GetMapping("/question/{id}")
@@ -30,9 +36,9 @@ public class QuestionController {
                            Model model,HttpServletRequest request) {
         questionService.intQuestionView(id);
         QuestionDTO questionDTO = questionService.getById(id);
-        System.out.println(id);
-        System.out.println(request.getSession().getAttribute("user"));
+        List<CommentQuestionDTO> commentDTOList = commentService.listByQuestionId(id);
         model.addAttribute("question", questionDTO);
+        model.addAttribute("commentDTOList",commentDTOList);
         return "question";
     }
 }

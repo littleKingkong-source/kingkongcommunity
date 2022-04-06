@@ -1,6 +1,9 @@
 package com.littlekingkong.community.dao;
 
+import com.littlekingkong.community.dto.CommentQuestionDTO;
 import com.littlekingkong.community.model.Comment;
+
+import java.util.List;
 
 /**
  * *
@@ -14,4 +17,6 @@ public interface CommentMapper {
     Integer insertComment(Comment comment);
 
     Comment selectById(Long parent_id);
+
+    List<Comment> selectByQuestion(Comment comment);
 }

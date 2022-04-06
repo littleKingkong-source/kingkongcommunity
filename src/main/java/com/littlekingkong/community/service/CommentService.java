@@ -1,7 +1,11 @@
 package com.littlekingkong.community.service;
 
+import com.littlekingkong.community.dto.CommentDTO;
+import com.littlekingkong.community.dto.CommentQuestionDTO;
 import com.littlekingkong.community.model.Comment;
 import com.littlekingkong.community.model.Question;
+
+import java.util.List;
 
 /**
  * *
@@ -14,6 +18,8 @@ public interface CommentService {
      // 持久化评论
      void insertComment(Comment comment);
 
-     // 评论回复数
+    List<CommentQuestionDTO> listByQuestionId(Long id);
+
+    // 评论回复数
 
 }

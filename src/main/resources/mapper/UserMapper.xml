@@ -29,6 +29,17 @@
         from user
         where account_id = #{account_id}
     </select>
+    <select id="selectByList" resultType="com.littlekingkong.community.model.User">
+        select *
+        from user
+        <if test="userIds !=null and userIds.size > 0 ">
+            where id in
+            <foreach collection="userIds" open="(" close=")"
+                     item="id" separator=",">
+                #{id}
+            </foreach>
+        </if>
+    </select>
 
 
 </mapper>

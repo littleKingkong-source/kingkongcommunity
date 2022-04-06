@@ -3,6 +3,8 @@ package com.littlekingkong.community.dao;
 import com.littlekingkong.community.model.User;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UserMapper {
     //新用户注册
     Integer insertUser(User user);
@@ -16,4 +18,6 @@ public interface UserMapper {
     User findByAccountId(@Param("account_id") String account_id);
 
     void update(User dbUser);
+
+    List<User> selectByList(List<Long> userIds);
 }
