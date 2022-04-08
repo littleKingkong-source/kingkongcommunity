@@ -70,7 +70,7 @@ public class CommentServiceImpl implements CommentService {
         if (comment.getType() == null || !CommentTypeEnum.isExist(comment.getType())) {
             throw new CustomizeException(CustomizeErrorCode.TYPE_PARAM_WRONG);
         }
-        System.out.println("可以执行到这里");
+//        System.out.println("可以执行到这里");
         if (comment.getType() == CommentTypeEnum.COMMENT.getType()) {
             //回复评论
             Comment dbComment = commentMapper.selectSubCommentById(comment.getParent_id());
@@ -78,7 +78,15 @@ public class CommentServiceImpl implements CommentService {
             if (dbComment == null) {
                 throw  new CustomizeException(CustomizeErrorCode.TARGET_PARAM_NOT_FOUND);
             }
+            // 回复评论持久化
             commentMapper.insertComment(comment);
+
+            // 增加评论数
+            Comment parentComment = new Comment();
+            parentComment.setId(comment.getParent_id());
+            parentComment.setComment_count(1);
+            commentMapper.updateCommentCount(parentComment);
+
         } else {
             // 回复问题
             Question question =  questionMapper.getById(comment.getParent_id());

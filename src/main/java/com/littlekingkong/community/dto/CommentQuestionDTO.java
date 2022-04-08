@@ -19,4 +19,5 @@ public class CommentQuestionDTO {
     private Long gmt_modified;
     private String content;
     private User user;
+    private Integer comment_count;
 }

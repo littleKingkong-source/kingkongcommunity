@@ -9,6 +9,11 @@
         insert into comment(content,parent_id,type,commentator,gmt_create,gmt_modified,like_count)
         values(#{content},#{parent_id},#{type},#{commentator},#{gmt_create},#{gmt_create},#{like_count})
     </insert>
+    <update id="updateCommentCount">
+        update comment
+        set comment_count = comment_count + ${comment_count}
+        where id = #{id}
+    </update>
     <select id="selectById" resultType="com.littlekingkong.community.model.Comment">
         select *
         from comment

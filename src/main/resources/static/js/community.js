@@ -20,13 +20,39 @@ function collapsecomment(e) {
 
     } else {
         $.getJSON("/comment/" + id, function (data){
-            console.log(data);
             $.each(data.data.reverse(), function (index, comment) {
-                var c = $("<div/>", {
+                //拼接头像
+                var mediaLeftElement = $("<div/>", {
+                    "class":"media-left"
+                }).append($("<img/>", {
+                    "class":"media-object img-rounded",
+                    "src":comment.user.avatar_url,
+                    "alt":"头像丢失了"
+                }));
+
+                var mediaBodyElement = $("<div/>", {
+                    "class":"media-body"
+                }).append($("<h5/>", {
+                    "class":"media-heading",
+                    "html":comment.user.name
+                })).append($("<div/>", {
+                    "html":comment.content
+                })).append($("<div/>", {
+                    "class":"menu",
+                }).append($("<span/>",{
+                    "class":"pull-right",
+                    "html": moment(comment.gmt_create).format('YYYY-MM-DD')
+                })));
+
+                var mediaElement = $("<div/>",{
+                    "class":"media"
+                }).append(mediaLeftElement).append(mediaBodyElement);
+
+                var commentElement = $("<div/>", {
                     "class" : "col-lg-12 col-md-12 col-sm-12 col-xs-12 comments subcommentscon2",
-                    html:comment.content
-                });
-                subCommentContainer.prepend(c);
+                }).append(mediaElement);
+
+                subCommentContainer.prepend(commentElement);
             });
         });
     }
@@ -71,8 +97,6 @@ function comment2target(targetid,type,content) {
 function comment(e) {
     var commentId = e.getAttribute("data-id");
     var content = $("#input-" + commentId).val();
-    alert(content);
-    alert(commentId);
     comment2target(commentId,2,content);
 }
 
