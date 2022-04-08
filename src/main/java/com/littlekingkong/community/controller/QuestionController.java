@@ -1,8 +1,8 @@
 package com.littlekingkong.community.controller;
 
-import com.littlekingkong.community.dto.CommentDTO;
 import com.littlekingkong.community.dto.CommentQuestionDTO;
 import com.littlekingkong.community.dto.QuestionDTO;
+import com.littlekingkong.community.enums.CommentTypeEnum;
 import com.littlekingkong.community.service.CommentService;
 import com.littlekingkong.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import javax.naming.Name;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -36,7 +35,8 @@ public class QuestionController {
                            Model model,HttpServletRequest request) {
         questionService.intQuestionView(id);
         QuestionDTO questionDTO = questionService.getById(id);
-        List<CommentQuestionDTO> commentDTOList = commentService.listByQuestionId(id);
+        List<CommentQuestionDTO> commentDTOList = commentService.listByTargetId(id, CommentTypeEnum.QUESTION);
+
         model.addAttribute("question", questionDTO);
         model.addAttribute("commentDTOList",commentDTOList);
         return "question";

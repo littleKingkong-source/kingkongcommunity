@@ -41,6 +41,20 @@ a:hover{
 .comment {
     margin: 10px 0;
 }
+
+.subcommentscon {
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #eee;
+    padding-top: 10px;
+}
+.subcommentscon2 {
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #eee;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 .comments {
     padding-bottom: 5px;
     margin-bottom: 15px;

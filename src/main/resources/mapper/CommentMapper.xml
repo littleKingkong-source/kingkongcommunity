@@ -20,4 +20,9 @@
         where parent_id = #{parent_id} and type = #{type}
         ORDER BY gmt_create DESC
     </select>
+    <select id="selectSubCommentById" resultType="com.littlekingkong.community.model.Comment">
+        select *
+        from comment
+        where id = #{id}
+    </select>
 </mapper>

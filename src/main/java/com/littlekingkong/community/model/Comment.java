@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @Data
 public class Comment {
-    private Integer id;
+    private Long id;
     private Long parent_id;
     private Integer type;
     private Long commentator;

@@ -11,12 +11,9 @@ import com.littlekingkong.community.model.Comment;
 import com.littlekingkong.community.model.Question;
 import com.littlekingkong.community.model.User;
 import com.littlekingkong.community.service.CommentService;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.yaml.snakeyaml.comments.CommentType;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -41,10 +38,10 @@ public class CommentServiceImpl implements CommentService {
     @Resource
     private UserMapper userMapper;
     @Override
-    public List<CommentQuestionDTO>  listByQuestionId(Long id) {
+    public List<CommentQuestionDTO>  listByTargetId(Long id, CommentTypeEnum type) {
         // 获取评论内容
         Comment Questioncomment = new Comment();
-        Questioncomment.setType(CommentTypeEnum.QUESTION.getType());
+        Questioncomment.setType(type.getType());
         Questioncomment.setParent_id(id);
         List<Comment> comments = commentMapper.selectByQuestion(Questioncomment);
         // 获取去重的评论人
@@ -73,9 +70,11 @@ public class CommentServiceImpl implements CommentService {
         if (comment.getType() == null || !CommentTypeEnum.isExist(comment.getType())) {
             throw new CustomizeException(CustomizeErrorCode.TYPE_PARAM_WRONG);
         }
+        System.out.println("可以执行到这里");
         if (comment.getType() == CommentTypeEnum.COMMENT.getType()) {
             //回复评论
-            Comment dbComment = commentMapper.selectById(comment.getParent_id());
+            Comment dbComment = commentMapper.selectSubCommentById(comment.getParent_id());
+
             if (dbComment == null) {
                 throw  new CustomizeException(CustomizeErrorCode.TARGET_PARAM_NOT_FOUND);
             }

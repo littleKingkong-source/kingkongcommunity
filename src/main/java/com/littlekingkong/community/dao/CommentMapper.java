@@ -18,5 +18,7 @@ public interface CommentMapper {
 
     Comment selectById(Long parent_id);
 
+    Comment selectSubCommentById(Long id);
+
     List<Comment> selectByQuestion(Comment comment);
 }
