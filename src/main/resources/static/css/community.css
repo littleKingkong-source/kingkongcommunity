@@ -27,6 +27,13 @@ body {
 .question-tag {
     margin-right: 10px;
 }
+.question-tag2 {
+    margin-right: 8px;
+    margin-top: 5px;
+}
+.tag-text {
+    margin-left: 0px;
+}
 .profile .section {
     margin-top: 15px;
 }

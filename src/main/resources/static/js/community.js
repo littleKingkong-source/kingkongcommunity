@@ -93,10 +93,26 @@ function comment2target(targetid,type,content) {
     });
 }
 
-
+/**
+ * 二级回复评论
+ * @param e
+ */
 function comment(e) {
     var commentId = e.getAttribute("data-id");
     var content = $("#input-" + commentId).val();
     comment2target(commentId,2,content);
 }
 
+/**
+ * 筛选标签
+ */
+function selectTag(value) {
+    var previous = $("#tag").val();
+    if (previous.indexOf(value) == -1) {
+        if (previous) {
+            $("#tag").val(previous + ',' + value);
+        } else {
+            $("#tag").val(value);
+        }
+    }
+}
