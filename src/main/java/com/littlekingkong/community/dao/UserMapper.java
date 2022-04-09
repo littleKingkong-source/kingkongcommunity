@@ -17,7 +17,10 @@ public interface UserMapper {
     //根据accountId查询用户
     User findByAccountId(@Param("account_id") String account_id);
 
+    // 更新用户信息
     void update(User dbUser);
 
+
+    // 用户表单
     List<User> selectByList(List<Long> userIds);
 }

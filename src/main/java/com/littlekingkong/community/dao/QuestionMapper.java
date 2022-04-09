@@ -6,13 +6,12 @@ import java.util.List;
 
 
 public interface QuestionMapper {
-    Integer create(Question question);
 
+    Integer create(Question question);
 
     Integer count();
 
     List<Question> listQuestion(@Param("page") Integer page, @Param("size") Integer size);
-
 
     List<Question> listQuestion2(@Param("offset") Integer offset, @Param("size") Integer size);;
 
@@ -28,5 +27,6 @@ public interface QuestionMapper {
 
     Integer intCommentCount(Question record);
 
+    List<Question> selectRelated(Question question);
 
 }

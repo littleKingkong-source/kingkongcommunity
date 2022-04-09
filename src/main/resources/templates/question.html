@@ -23,6 +23,7 @@
 <!--&lt;!&ndash;主体内容&ndash;&gt;-->
 <div class="container-fluid main profile">
     <div class="row">
+        <!--        正文-->
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h4>
@@ -48,6 +49,15 @@
                 <hr/>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:text="${question.description}"></div>
                 <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12"/>
+                <!--                标签-->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 10px;height: 20px">
+                    <span class="label label-info question-tag" th:each="tag : ${question.tag.split(',')}">
+                        <span class="glyphicon glyphicon-tags"></span>
+                        <span class="label label-info" th:text="${tag}"></span>
+                    </span>
+                </div>
+                <br/>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <a th:href="@{'/publish/'+${question.id}}" class="community-menu"
                    th:if="${session.user != null && session.user.id == question.creator}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -56,6 +66,7 @@
                     </svg>
                     编辑
                 </a>
+                </div>
             </div>
 
 
@@ -88,13 +99,14 @@
                                 </svg>
                                 </span>
 
-                                <span style="cursor: pointer" th:data-id="${comment.id}" onclick="collapsecomment(this)">
+                                <span style="cursor: pointer" th:data-id="${comment.id}"
+                                      onclick="collapsecomment(this)">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                          class="bi bi-chat-right-dots ioc" viewBox="0 0 16 16">
                                     <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
                                     <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                                 </svg>
-                                    <span  th:text="${comment.comment_count}"></span>
+                                    <span th:text="${comment.comment_count}"></span>
                                 </span>
 
                                 <span class="pull-right"
@@ -121,7 +133,7 @@
                                 <!--                                        </div>-->
                                 <!--                                    </div>-->
                                 <!--                                </div>-->
-<!--                                二级回复框-->
+                                <!--                                二级回复框-->
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 subcommentscon">
                                     <input class="form-control form-control-lg " type="text" placeholder="评论一下..."
                                            aria-label=".form-control-lg example" th:id="${'input-'+comment.id}">
@@ -168,6 +180,8 @@
             </div>
 
         </div>
+
+        <!--        右侧框-->
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <div class="col-lg-12 col-md-12 col-xs-12">
                 <h4>发起人</h4>
@@ -185,9 +199,21 @@
                     </div>
                 </div>
             </div>
+            <!--微信号-->
+            <hr class="col-lg-12 col-md-12 col-xs-12"/>
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <h4>站长QQ</h4>
+                <img  alt="有问题请联系我" src="/img/QQ.jpg"class="img-thumbnail question-QQ">
+                <a href="http://www.littlekingkong.com">记忆个人博客</a>
+            </div>
             <hr class="col-lg-12 col-md-12 col-xs-12"/>
             <div class="col-lg-12 col-md-12 col-xs-12">
                 <h4>相关问题</h4>
+                <ul class="question-related">
+                    <li th:each="related : ${relatedQuestion}">
+                        <a th:href="@{'/question/' + ${related.id}}" th:text="${related.title}"></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

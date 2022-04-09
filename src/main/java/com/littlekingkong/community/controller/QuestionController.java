@@ -33,12 +33,20 @@ public class QuestionController {
     @GetMapping("/question/{id}")
     public String question(@PathVariable(name = "id") Long id,
                            Model model,HttpServletRequest request) {
+        // 增加阅读数
         questionService.intQuestionView(id);
+
+        // 查询问题展示
         QuestionDTO questionDTO = questionService.getById(id);
+
+        List<QuestionDTO> relatedQuestion = questionService.selectRelated(questionDTO);
+        relatedQuestion.forEach(c-> System.out.println(c));
+        System.out.println("--------");
         List<CommentQuestionDTO> commentDTOList = commentService.listByTargetId(id, CommentTypeEnum.QUESTION);
 
         model.addAttribute("question", questionDTO);
         model.addAttribute("commentDTOList",commentDTOList);
+        model.addAttribute("relatedQuestion",relatedQuestion);
         return "question";
     }
 }

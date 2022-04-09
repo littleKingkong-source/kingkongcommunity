@@ -9,12 +9,14 @@ import com.littlekingkong.community.exception.CustomizeException;
 import com.littlekingkong.community.model.Question;
 import com.littlekingkong.community.model.User;
 import com.littlekingkong.community.service.QuestionService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * *
@@ -39,6 +41,25 @@ public class QuestionServiceImpl implements QuestionService {
 
     //增加浏览数量
 
+
+    @Override
+    public List<QuestionDTO> selectRelated(QuestionDTO questionDTO) {
+        if (StringUtils.isBlank(questionDTO.getTag())) {
+            return new ArrayList<>();
+        }
+        Question question = new Question();
+        question.setId(questionDTO.getId());
+        System.out.println(StringUtils.replace(questionDTO.getTag(),",","|"));
+        question.setTag(StringUtils.replace(questionDTO.getTag(),",","|"));
+        List<Question> questionList = questionMapper.selectRelated(question);
+        System.out.println(questionList);
+        List<QuestionDTO> questionDTOS = questionList.stream().map(q -> {
+            QuestionDTO questionDTO1 = new QuestionDTO();
+            BeanUtils.copyProperties(q,questionDTO1);
+            return questionDTO1;
+        }).collect(Collectors.toList());
+        return questionDTOS;
+    }
 
     @Override
     public void intQuestionView(Long id) {
