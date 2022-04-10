@@ -24,13 +24,6 @@ body {
     color: #9999cc;
 }
 
-.question-tag {
-    margin-right: 10px;
-}
-.question-tag2 {
-    margin-right: 8px;
-    margin-top: 5px;
-}
 .tag-text {
     margin-left: 0px;
 }
@@ -120,4 +113,25 @@ button{
 .question-QQ {
     width: 100%;
     height: 311px;
+}
+
+.publish-tag-tag {
+    margin-top: 10px;
+    display: none;
+    padding-top: 10px;
+
+}
+
+.question-tag {
+    margin-right: 10px;
+    margin-top: 13px;
+}
+.publish-question-tag-icon {
+    margin-right: 8px;
+    margin-top: 10px;
+}
+.publish-tag-tag .label-info {
+    margin: 5px 5px;
+    display: inline-block;
+    white-space: normal;
 }

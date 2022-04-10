@@ -104,9 +104,10 @@ function comment(e) {
 }
 
 /**
- * 筛选标签
+ * 植入标签值
  */
-function selectTag(value) {
+function selectTag(e) {
+    var value = e.getAttribute("data-tag");
     var previous = $("#tag").val();
     if (previous.indexOf(value) == -1) {
         if (previous) {
@@ -116,3 +117,16 @@ function selectTag(value) {
         }
     }
 }
+
+/**
+ * 展示标签页
+ */
+
+function selectByTag() {
+     $("#selectByTag").show();
+
+    //获取焦点 focus
+
+}
+
+

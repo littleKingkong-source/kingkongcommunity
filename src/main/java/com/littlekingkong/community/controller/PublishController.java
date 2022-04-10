@@ -1,9 +1,11 @@
 package com.littlekingkong.community.controller;
 
+import com.littlekingkong.community.cache.TagCache;
 import com.littlekingkong.community.model.Question;
 import com.littlekingkong.community.model.User;
 import com.littlekingkong.community.service.QuestionService;
 import com.littlekingkong.community.service.UserService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +30,8 @@ public class PublishController {
     private QuestionService questionService;
 
     @GetMapping("/publish")
-    public String publish() {
+    public String publish(Model model) {
+        model.addAttribute("SelectByTags", TagCache.get());
         return "/editor/publish";
     }
 
@@ -45,7 +48,7 @@ public class PublishController {
         model.addAttribute("title", title);
         model.addAttribute("description", description);
         model.addAttribute("tag", tag);
-
+        model.addAttribute("SelectByTags", TagCache.get());
         if (title == null || title == "") {
             model.addAttribute("error", "标题不能为空");
             return "/editor/publish";
@@ -58,6 +61,14 @@ public class PublishController {
             model.addAttribute("error", "标签不能为空");
             return "/editor/publish";
         }
+
+        // 查询是否含有非法标签
+        String invalid = TagCache.filterInvalid(tag);
+        if (StringUtils.isNoneBlank(invalid)) {
+            model.addAttribute("error", "输入非法标签" + invalid);
+            return "/editor/publish";
+        }
+
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
             model.addAttribute("error", "用户未登录");
@@ -76,7 +87,7 @@ public class PublishController {
         question.setComment_count(comment_count);
         question.setView_count(view_count);
         questionService.createOrUpdate(question);
-
+//        model.addAttribute("SelectByTags", TagCache.get());
         //questionService.createQuestion(question);
         return "redirect:/";
 
@@ -92,6 +103,7 @@ public class PublishController {
         model.addAttribute("description", question.getDescription());
         model.addAttribute("tag", question.getTag());
         model.addAttribute("id", question.getId());
+        model.addAttribute("SelectByTags", TagCache.get());
         return "editor/publish";
     }
 
