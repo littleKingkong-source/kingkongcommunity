@@ -163,12 +163,12 @@
                     <div class="media">
                         <div class="media-left">
                             <a href="#">
-                                <img class="media-object img-rounded" th:src="${question.user.avatar_url}" alt="头像丢失了">
+                                <img class="media-object img-rounded" th:src="${session.user.avatar_url}" alt="头像丢失了">
                             </a>
                         </div>
                         <div class="media-body">
                             <h5 class="media-heading">
-                                <span th:text="${question.user.name}"></span>
+                                <span th:text="${session.user.name}"></span>
                             </h5>
                             </span>
                         </div>

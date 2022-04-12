@@ -5,6 +5,7 @@ import com.littlekingkong.community.dto.PaginationDTO;
 import com.littlekingkong.community.dto.QuestionDTO;
 import com.littlekingkong.community.model.Question;
 import com.littlekingkong.community.model.User;
+import com.littlekingkong.community.service.NotificationService;
 import com.littlekingkong.community.service.QuestionService;
 import com.littlekingkong.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ public class IndexController {
 
     @Autowired
     private QuestionService questionService;
+
 
     @GetMapping("/")
     public String index(HttpServletRequest request,

@@ -2,6 +2,7 @@ package com.littlekingkong.community.interceptor;
 
 import com.littlekingkong.community.dao.UserMapper;
 import com.littlekingkong.community.model.User;
+import com.littlekingkong.community.service.NotificationService;
 import com.littlekingkong.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,8 @@ public class SessionInterRegistry implements HandlerInterceptor {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private NotificationService notificationService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler
@@ -36,6 +39,8 @@ public class SessionInterRegistry implements HandlerInterceptor {
                     User user = userService.findToken(token);
                     if(user != null) {
                         request.getSession().setAttribute("user", user);
+                        Long unReadCount = notificationService.unReadCount(user.getId());
+                        request.getSession().setAttribute("unReadMessage",unReadCount);
                         return true;
                     }
                     break;

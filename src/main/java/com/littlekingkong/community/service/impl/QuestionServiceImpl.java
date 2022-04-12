@@ -110,7 +110,7 @@ public class QuestionServiceImpl implements QuestionService {
             questionDTO.setUser(user);
             questionDTOList.add(questionDTO);
         }
-        paginationDTO.setQuestions(questionDTOList);
+        paginationDTO.setData(questionDTOList);
 
         return paginationDTO;
     }
@@ -151,6 +151,8 @@ public class QuestionServiceImpl implements QuestionService {
         if(offset < 0) {
             offset = 0;
         }
+
+        // 查询指定条数的问题
         List<Question> questions = questionMapper.listUserQuestion(userId,offset, size);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
@@ -161,7 +163,7 @@ public class QuestionServiceImpl implements QuestionService {
             questionDTO.setUser(user);
             questionDTOList.add(questionDTO);
         }
-        paginationDTO.setQuestions(questionDTOList);
+        paginationDTO.setData(questionDTOList);
 
         return paginationDTO;
     }

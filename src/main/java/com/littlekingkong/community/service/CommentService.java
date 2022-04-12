@@ -5,6 +5,7 @@ import com.littlekingkong.community.dto.CommentQuestionDTO;
 import com.littlekingkong.community.enums.CommentTypeEnum;
 import com.littlekingkong.community.model.Comment;
 import com.littlekingkong.community.model.Question;
+import com.littlekingkong.community.model.User;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ import java.util.List;
 
 public interface CommentService {
      // 持久化评论
-     void insertComment(Comment comment);
+     void insertComment(Comment comment, User user);
 
     List<CommentQuestionDTO> listByTargetId(Long id, CommentTypeEnum type);
 

@@ -8,6 +8,7 @@ import com.littlekingkong.community.exception.CustomizeErrorCode;
 import com.littlekingkong.community.model.Comment;
 import com.littlekingkong.community.model.User;
 import com.littlekingkong.community.service.CommentService;
+import com.littlekingkong.community.service.NotificationService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,8 @@ public class CommentController {
 
     @Resource
     private CommentService commentService;
+
+
 
     @ResponseBody
     @RequestMapping(value = "/comment", method = RequestMethod.POST)
@@ -50,7 +53,7 @@ public class CommentController {
         comment.setCommentator(user.getId());
         comment.setLike_count(0L);
         System.out.println(comment);
-        commentService.insertComment(comment);
+        commentService.insertComment(comment,user);
 
         return ResultDTO.okOf();
     }
