@@ -59,7 +59,7 @@ public class IndexController {
                 }
             }
         }
-        System.out.println("search=" + search);
+
         PaginationDTO pagination = questionService.listSearch(search, page, size);
         model.addAttribute("pagination", pagination);
         model.addAttribute("search", search);
