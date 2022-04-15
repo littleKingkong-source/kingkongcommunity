@@ -4,6 +4,7 @@ import com.littlekingkong.community.dao.QuestionMapper;
 import com.littlekingkong.community.dao.UserMapper;
 import com.littlekingkong.community.dto.PaginationDTO;
 import com.littlekingkong.community.dto.QuestionDTO;
+import com.littlekingkong.community.dto.QuestionQueryDTO;
 import com.littlekingkong.community.exception.CustomizeErrorCode;
 import com.littlekingkong.community.exception.CustomizeException;
 import com.littlekingkong.community.model.Question;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,16 +41,21 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
 
-    //增加浏览数量
+
     @Override
     public List<QuestionDTO> selectRelated(QuestionDTO questionDTO) {
         if (StringUtils.isBlank(questionDTO.getTag())) {
             return new ArrayList<>();
         }
+//        Question question = new Question();
+//        question.setId(questionDTO.getId());
+//        question.setTag(StringUtils.replace(questionDTO.getTag(),",","|"));
+        String[] tags = StringUtils.split(questionDTO.getTag(), ",");
+        String regexTag = Arrays.stream(tags).collect(Collectors.joining("|"));
         Question question = new Question();
         question.setId(questionDTO.getId());
-        //System.out.println(StringUtils.replace(questionDTO.getTag(),",","|"));
-        question.setTag(StringUtils.replace(questionDTO.getTag(),",","|"));
+        question.setTag(regexTag);
+
         List<Question> questionList = questionMapper.selectRelated(question);
         List<QuestionDTO> questionDTOS = questionList.stream().map(q -> {
             QuestionDTO questionDTO1 = new QuestionDTO();
@@ -88,8 +95,14 @@ public class QuestionServiceImpl implements QuestionService {
     // 首页问题分页展示
     @Override
     public PaginationDTO list2(Integer page, Integer size) {
+
+
+
+
         PaginationDTO paginationDTO = new PaginationDTO();
         Integer count = questionMapper.count();
+
+
         paginationDTO.setPagination(count, page, size);
 
         if (page < 1) {
@@ -101,7 +114,59 @@ public class QuestionServiceImpl implements QuestionService {
         }
         // 展示的页数，等于 （页数 - 1） * 每页数目
         Integer offset = (page - 1) * size;
+
+
+
         List<Question> questions = questionMapper.listQuestion2(offset, size);
+        List<QuestionDTO> questionDTOList = new ArrayList<>();
+
+        for (Question question : questions) {
+            User user = userMapper.findById(question.getCreator());
+            QuestionDTO questionDTO = new QuestionDTO();
+            BeanUtils.copyProperties(question, questionDTO);
+            questionDTO.setUser(user);
+            questionDTOList.add(questionDTO);
+        }
+        paginationDTO.setData(questionDTOList);
+
+        return paginationDTO;
+    }
+
+
+    // 搜索分页展示
+    @Override
+    public PaginationDTO listSearch(String search, Integer page, Integer size) {
+
+        if (StringUtils.isNoneBlank(search)) {
+            String[] tags = StringUtils.split(search, " ");
+            search = Arrays.stream(tags).collect(Collectors.joining("|"));
+        }
+
+
+        PaginationDTO paginationDTO = new PaginationDTO();
+        //Integer count = questionMapper.count();
+        QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
+        questionQueryDTO.setSearch(search);
+        Integer count = questionMapper.countBySearch(questionQueryDTO);
+
+
+        paginationDTO.setPagination(count, page, size);
+
+        if (page < 1) {
+            page = 1;
+        }
+
+        if (page > paginationDTO.getTotalPage()) {
+            page = paginationDTO.getTotalPage();
+        }
+        // 展示的页数，等于 （页数 - 1） * 每页数目
+        Integer offset = (page - 1) * size;
+
+        questionQueryDTO.setSize(size);
+        questionQueryDTO.setPage(offset);
+
+        //List<Question> questions = questionMapper.listQuestion2(offset, size);
+        List<Question> questions = questionMapper.selectBySearch(questionQueryDTO);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
         for (Question question : questions) {

@@ -1,4 +1,5 @@
 package com.littlekingkong.community.dao;
+import com.littlekingkong.community.dto.QuestionQueryDTO;
 import com.littlekingkong.community.model.Question;
 import org.apache.ibatis.annotations.Param;
 
@@ -29,4 +30,7 @@ public interface QuestionMapper {
 
     List<Question> selectRelated(Question question);
 
+    Integer countBySearch(QuestionQueryDTO questionQueryDTO);
+
+    List<Question> selectBySearch(QuestionQueryDTO questionQueryDTO);
 }

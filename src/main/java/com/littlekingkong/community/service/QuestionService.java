@@ -14,6 +14,9 @@ public interface QuestionService {
     // 主页分页展示
     PaginationDTO list2(@Param("page") Integer page, @Param("size") Integer size);
 
+    //搜索分页展示
+    PaginationDTO listSearch(@Param("search") String search, @Param("page") Integer page, @Param("size") Integer size);
+
     List<QuestionDTO> listQuestion(Integer page, Integer size);
 
 
