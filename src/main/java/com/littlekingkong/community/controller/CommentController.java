@@ -43,7 +43,6 @@ public class CommentController {
         if (commentDTO == null || StringUtils.isBlank(commentDTO.getContent())) {
             return ResultDTO.errorOf(CustomizeErrorCode.COMMENT_IS_NULL);
         }
-        System.out.println(commentDTO);
         Comment comment = new Comment();
         comment.setParent_id(commentDTO.getParent_id());
         comment.setContent(commentDTO.getContent());
@@ -52,7 +51,6 @@ public class CommentController {
         comment.setGmt_modified(System.currentTimeMillis());
         comment.setCommentator(user.getId());
         comment.setLike_count(0L);
-        System.out.println(comment);
         commentService.insertComment(comment,user);
 
         return ResultDTO.okOf();

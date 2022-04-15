@@ -38,10 +38,7 @@ public class QuestionController {
 
         // 查询问题展示
         QuestionDTO questionDTO = questionService.getById(id);
-
         List<QuestionDTO> relatedQuestion = questionService.selectRelated(questionDTO);
-        relatedQuestion.forEach(c-> System.out.println(c));
-        System.out.println("--------");
         List<CommentQuestionDTO> commentDTOList = commentService.listByTargetId(id, CommentTypeEnum.QUESTION);
 
         model.addAttribute("question", questionDTO);

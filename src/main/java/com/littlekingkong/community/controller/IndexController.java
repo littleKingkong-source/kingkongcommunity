@@ -34,6 +34,8 @@ public class IndexController {
     @Autowired
     private QuestionService questionService;
 
+    @Autowired
+    private NotificationService notificationService;
 
     @GetMapping("/")
     public String index(HttpServletRequest request,
@@ -48,6 +50,8 @@ public class IndexController {
                     User user = userService.findToken(token);
                     if(user != null) {
                         request.getSession().setAttribute("user", user);
+                        Long unReadCount = notificationService.unReadCount(user.getId());
+                        request.getSession().setAttribute("unReadMessage",unReadCount);
                     }
                     break;
                 }

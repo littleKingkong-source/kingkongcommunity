@@ -133,6 +133,17 @@
             <version>3.12.0</version>
         </dependency>
 
+<!--        sdk上传图片-->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>3.14.0</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+
 
 
     </dependencies>

@@ -40,8 +40,6 @@ public class QuestionServiceImpl implements QuestionService {
 
 
     //增加浏览数量
-
-
     @Override
     public List<QuestionDTO> selectRelated(QuestionDTO questionDTO) {
         if (StringUtils.isBlank(questionDTO.getTag())) {
@@ -49,10 +47,9 @@ public class QuestionServiceImpl implements QuestionService {
         }
         Question question = new Question();
         question.setId(questionDTO.getId());
-        System.out.println(StringUtils.replace(questionDTO.getTag(),",","|"));
+        //System.out.println(StringUtils.replace(questionDTO.getTag(),",","|"));
         question.setTag(StringUtils.replace(questionDTO.getTag(),",","|"));
         List<Question> questionList = questionMapper.selectRelated(question);
-        System.out.println(questionList);
         List<QuestionDTO> questionDTOS = questionList.stream().map(q -> {
             QuestionDTO questionDTO1 = new QuestionDTO();
             BeanUtils.copyProperties(q,questionDTO1);
@@ -61,6 +58,7 @@ public class QuestionServiceImpl implements QuestionService {
         return questionDTOS;
     }
 
+    // 实现观看人数递增
     @Override
     public void intQuestionView(Long id) {
         Question question = new Question();
@@ -69,6 +67,8 @@ public class QuestionServiceImpl implements QuestionService {
         questionMapper.inView(question);
     }
 
+
+    // 实现问题编辑更新
     @Override
     public void createOrUpdate(Question question) {
         //如果id为空证明不存在，则新建
@@ -78,13 +78,14 @@ public class QuestionServiceImpl implements QuestionService {
             // id 不为空，进行问题更新
             question.setGmt_modified(System.currentTimeMillis());
             int updated = questionMapper.update(question);
-            System.out.println(updated);
             if (updated != 1) {
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
         }
     }
 
+
+    // 首页问题分页展示
     @Override
     public PaginationDTO list2(Integer page, Integer size) {
         PaginationDTO paginationDTO = new PaginationDTO();
@@ -180,7 +181,6 @@ public class QuestionServiceImpl implements QuestionService {
         QuestionDTO questionDTO = new QuestionDTO();
         BeanUtils.copyProperties(question, questionDTO);
         User user = userMapper.findById(question.getCreator());
-        System.out.println(user.getId() + " " + questionDTO.getCreator());
         questionDTO.setUser(user);
         return questionDTO;
     }

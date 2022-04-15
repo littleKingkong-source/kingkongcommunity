@@ -123,6 +123,11 @@ public class CommentServiceImpl implements CommentService {
     }
 
     private void createNotifiy(Comment comment, Long receiver, String notifierName, String outerTitle,NotificationTypeEnum typeEnum, Long outerId) {
+
+        if (receiver == comment.getCommentator()) {
+            // 如果自己回复自己则不进行通知
+            return;
+        }
         // 通知回复
         Notification notification = new Notification();
         notification.setGmt_create(System.currentTimeMillis());
