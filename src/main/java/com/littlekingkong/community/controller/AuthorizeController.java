@@ -6,6 +6,7 @@ import com.littlekingkong.community.model.User;
 import com.littlekingkong.community.provider.GitHubProvider;
 import com.littlekingkong.community.service.UserService;
 import com.sun.deploy.net.HttpResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +27,7 @@ import java.util.UUID;
  * @date 2022/3/11 21:45*@since 1.0.0
  */
 @Controller
+@Slf4j
 public class AuthorizeController {
 
     @Autowired
@@ -72,6 +74,7 @@ public class AuthorizeController {
             return "redirect:/";
         }else {
             //登陆失败，重新登录
+            log.error("callback github user error {}",gitHubUser);
             return "redirect:/";
         }
 

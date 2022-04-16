@@ -2,6 +2,7 @@ package com.littlekingkong.community.dao;
 import com.littlekingkong.community.dto.QuestionQueryDTO;
 import com.littlekingkong.community.model.Question;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
 
@@ -33,4 +34,6 @@ public interface QuestionMapper {
     Integer countBySearch(QuestionQueryDTO questionQueryDTO);
 
     List<Question> selectBySearch(QuestionQueryDTO questionQueryDTO);
+
+    List<Question> selectWithRowbounds(RowBounds rowBounds);
 }

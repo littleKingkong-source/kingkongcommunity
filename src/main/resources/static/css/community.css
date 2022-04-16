@@ -112,7 +112,7 @@ button{
 }
 .question-QQ {
     width: 100%;
-    height: 311px;
+    height: 270px;
 }
 
 .publish-tag-tag {
@@ -134,4 +134,10 @@ button{
     margin: 5px 5px;
     display: inline-block;
     white-space: normal;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px 25px;
+    color: #666;
 }

@@ -40,7 +40,7 @@
                         <a th:href="@{'/question/'+ ${question.id}}" th:text="${question.title}"></a>
                     </h4>
 <!--                    <span th:text="${question.description}"></span>-->
-                    <span th:text="${question.description}"></span>
+                    <span th:text="${#strings.abbreviate(question.description,30)}"></span>
                     <br/>
                     <span class="text-desc text_ioc">
 <!--                        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>-->
@@ -70,56 +70,50 @@
             <nav aria-label="Page navigation">
                 <ul class="pagination">
                     <li th:if="${pagination.showFirstPage}">
-                        <a href="/?page=1" aria-label="Previous">
+                        <a th:href="@{/(page=1,search=${search},tag=${tag})}" aria-label="Previous">
                             <span aria-hidden="true">&lt;&lt;</span>
                         </a>
                     </li>
                     <li th:if="${pagination.showPrevious}">
-                        <a th:href="@{/(page=${pagination.page - 1},search=${search})}" aria-label="Previous">
+                        <a th:href="@{/(page=${pagination.page - 1},search=${search},tag=${tag})}" aria-label="Previous">
                             <span aria-hidden="true">&lt;</span>
                         </a>
                     </li>
                     <li th:each="page : ${pagination.pages}" th:class="${pagination.page == page}? 'active':''">
-                        <a th:href="@{/(page=${page},search=${search})}" th:text="${page}"></a>
+                        <a th:href="@{/(page=${page},search=${search},tag=${tag})}" th:text="${page}"></a>
                     </li>
 
                     <li th:if="${pagination.showNext}">
-                        <a th:href="@{/(page=${pagination.page + 1},search=${search})}" aria-label="Previous">
+                        <a th:href="@{/(page=${pagination.page + 1},search=${search},tag=${tag})}" aria-label="Previous">
                             <span aria-hidden="true">&gt;</span>
                         </a>
                     </li>
                     <li th:if="${pagination.showEndPage}">
-                        <a th:href="@{/(page=${pagination.totalPage},search=${search})}" aria-label="Previous">
+                        <a th:href="@{/(page=${pagination.totalPage},search=${search},tag=${tag})}" aria-label="Previous">
                             <span aria-hidden="true">&gt;&gt;</span>
                         </a>
                     </li>
                 </ul>
             </nav>
-<!--            <nav aria-label="Page navigation example">-->
-<!--                <ul class="pagination">-->
-<!--                    <li class="page-item" th:if="${pagination.showFirstPage}">-->
-<!--                        <a href="/?page=1" class="page-link" > <span aria-hidden="true">&lt;&lt;</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="page-item" th:if="${pagination.showPrevious}">-->
-<!--                        <a th:href="@{/(page=${pagination.page - 1})}" class="page-link"><span aria-hidden="true">&lt;</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="page-item" th:each="page : ${pagination.pages}" th:class="${pagination.page == page}? 'active':''">-->
-<!--                        <a class="page-link" th:href="@{/(page=${page})}" th:text="${page}"></a>-->
-<!--                    </li>-->
-<!--                    <li class="page-item" th:if="${pagination.showNext}">-->
-<!--                        <a class="page-link" th:href="@{/(page=${pagination.page + 1})}"> <span aria-hidden="true">&gt;</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="page-item" th:if="${pagination.showEndPage}">-->
-<!--                        <a class="page-link" th:href="@{/(page=${pagination.totalPage})}"><span aria-hidden="true">&gt;&gt;</span></a>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </nav>-->
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <h3>热门话题</h3>
-
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <h4>站长QQ</h4>
+                <img alt="有问题请联系我" src="/images/QQ.jpg" class="img-thumbnail question-QQ">
+                <a href="http://www.littlekingkong.com">记忆个人博客</a>
+            </div>
+            <hr class="col-lg-12 col-md-12 col-xs-12"/>
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <h4>Top8热门话题</h4>
+                <ul class="question-related" style="margin-top: 10px">
+                    <li th:each="tag : ${tags}" style="font-size: 20px;margin-top: 4px">
+                        <a th:href="@{/(page=1,search=${search},tag=${tag})}" th:text="${tag}"></a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
+<div th:insert="~{/commont/footer :: footer}"></div>
 </body>
 </html>

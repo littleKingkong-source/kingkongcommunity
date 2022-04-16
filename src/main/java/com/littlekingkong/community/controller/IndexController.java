@@ -1,5 +1,6 @@
 package com.littlekingkong.community.controller;
 
+import com.littlekingkong.community.cache.HotTagCache;
 import com.littlekingkong.community.dao.UserMapper;
 import com.littlekingkong.community.dto.PaginationDTO;
 import com.littlekingkong.community.dto.QuestionDTO;
@@ -37,13 +38,16 @@ public class IndexController {
     @Autowired
     private NotificationService notificationService;
 
+    @Autowired
+    private HotTagCache hotTagCache;
+
     @GetMapping("/")
     public String index(HttpServletRequest request,
                         Model model,
                         @RequestParam(name = "page", defaultValue = "1") Integer page,
                         @RequestParam(name = "size", defaultValue = "5") Integer size,
-                        @RequestParam(name = "search", required = false) String search
-                        ){
+                        @RequestParam(name = "search", required = false) String search,
+                        @RequestParam(name = "tag"  , required = false) String tag){
         Cookie[] cookies = request.getCookies();
         if(cookies.length != 0) {
             for (Cookie cookie : cookies) {
@@ -60,12 +64,16 @@ public class IndexController {
             }
         }
 
-        PaginationDTO pagination = questionService.listSearch(search, page, size);
+        PaginationDTO pagination = questionService.listSearch(search, tag, page, size);
+
+        // 获取热评
+        List<String> tags = hotTagCache.getHots();
+        System.out.println(tags);
+
         model.addAttribute("pagination", pagination);
         model.addAttribute("search", search);
-
-//        List<QuestionDTO> questionDTOList = questionService.listQuestion(page,size);
-//        model.addAttribute("questions",questionDTOList);
+        model.addAttribute("tag",tag);
+        model.addAttribute("tags",tags);
         return "index";
     }
 

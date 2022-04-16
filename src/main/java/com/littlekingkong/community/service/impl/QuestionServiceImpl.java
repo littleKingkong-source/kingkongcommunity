@@ -135,7 +135,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     // 搜索分页展示
     @Override
-    public PaginationDTO listSearch(String search, Integer page, Integer size) {
+    public PaginationDTO listSearch(String search, String tag,Integer page, Integer size) {
 
         if (StringUtils.isNoneBlank(search)) {
             String[] tags = StringUtils.split(search, " ");
@@ -147,6 +147,7 @@ public class QuestionServiceImpl implements QuestionService {
         //Integer count = questionMapper.count();
         QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
         questionQueryDTO.setSearch(search);
+        questionQueryDTO.setTag(tag);
         Integer count = questionMapper.countBySearch(questionQueryDTO);
 
 
