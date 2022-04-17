@@ -5,6 +5,7 @@ import com.littlekingkong.community.dao.UserMapper;
 import com.littlekingkong.community.dto.PaginationDTO;
 import com.littlekingkong.community.dto.QuestionDTO;
 import com.littlekingkong.community.dto.QuestionQueryDTO;
+import com.littlekingkong.community.enums.SortEnum;
 import com.littlekingkong.community.exception.CustomizeErrorCode;
 import com.littlekingkong.community.exception.CustomizeException;
 import com.littlekingkong.community.model.Question;
@@ -276,6 +277,74 @@ public class QuestionServiceImpl implements QuestionService {
 
 
         List<Question> questions = questionMapper.listZeroCommentQuestion2(offset, size);
+        List<QuestionDTO> questionDTOList = new ArrayList<>();
+
+        for (Question question : questions) {
+            User user = userMapper.findById(question.getCreator());
+            QuestionDTO questionDTO = new QuestionDTO();
+            BeanUtils.copyProperties(question, questionDTO);
+            questionDTO.setUser(user);
+            questionDTOList.add(questionDTO);
+        }
+        paginationDTO.setData(questionDTOList);
+
+        return paginationDTO;
+    }
+
+    @Override
+    public PaginationDTO listNewQuestion(String search, String tag, String sort, Integer page, Integer size) {
+
+        if (StringUtils.isNotBlank(search)) {
+            String[] tags = StringUtils.split(search, " ");
+            search = Arrays
+                    .stream(tags)
+                    .filter(StringUtils::isNotBlank)
+                    .map(t -> t.replace("+", "").replace("*", "").replace("?", ""))
+                    .filter(StringUtils::isNotBlank)
+                    .collect(Collectors.joining("|"));
+        }
+
+        PaginationDTO paginationDTO = new PaginationDTO();
+
+        QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
+        questionQueryDTO.setSearch(search);
+        if (StringUtils.isNotBlank(tag)) {
+            tag = tag.replace("+", "").replace("*", "").replace("?", "");
+            questionQueryDTO.setTag(tag);
+        }
+
+        for (SortEnum sortEnum : SortEnum.values()) {
+            if (sortEnum.name().toLowerCase().equals(sort)) {
+                questionQueryDTO.setSort(sort);
+                System.out.println(sort);
+                if (sortEnum == SortEnum.HOT7) {
+                    questionQueryDTO.setTime(System.currentTimeMillis() - 1000L * 60 * 60 * 24 * 7);
+                }
+                if (sortEnum == SortEnum.HOT30) {
+                    questionQueryDTO.setTime(System.currentTimeMillis() - 1000L * 60 * 60 * 24 * 30);
+                }
+                break;
+            }
+        }
+        System.out.println("---------------------" + questionQueryDTO + "------------------------");
+        Integer count = questionMapper.countByNewSearch(questionQueryDTO);
+
+        paginationDTO.setPagination(count, page, size);
+
+        if (page < 1) {
+            page = 1;
+        }
+
+        if (page > paginationDTO.getTotalPage()) {
+            page = paginationDTO.getTotalPage();
+        }
+        // 展示的页数，等于 （页数 - 1） * 每页数目
+        Integer offset = (page - 1) * size;
+
+        questionQueryDTO.setSize(size);
+        questionQueryDTO.setPage(offset);
+
+        List<Question> questions = questionMapper.selectByTypeSearch(questionQueryDTO);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
         for (Question question : questions) {

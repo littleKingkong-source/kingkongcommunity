@@ -38,4 +38,8 @@ public interface QuestionMapper {
     List<Question> selectWithRowbounds(RowBounds rowBounds);
 
     List<Question> listZeroCommentQuestion2(Integer offset, Integer size);
+
+    Integer countByNewSearch(QuestionQueryDTO questionQueryDTO);
+
+    List<Question> selectByTypeSearch(QuestionQueryDTO questionQueryDTO);
 }

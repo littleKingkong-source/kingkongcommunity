@@ -52,7 +52,8 @@ public class IndexController {
                         @RequestParam(name = "page", defaultValue = "1") Integer page,
                         @RequestParam(name = "size", defaultValue = "10") Integer size,
                         @RequestParam(name = "search", required = false) String search,
-                        @RequestParam(name = "tag"  , required = false) String tag){
+                        @RequestParam(name = "tag"  , required = false) String tag,
+                        @RequestParam(name = "sort", required = false) String sort){
         HttpSession session = request.getSession();
         session.setAttribute("ads",adService.list());
 
@@ -72,21 +73,23 @@ public class IndexController {
             }
         }
         // 最新和全部问题展示
-        PaginationDTO pagination = questionService.listSearch(search, tag, page, size);
+        //PaginationDTO pagination = questionService.listSearch(search, tag, page, size);
 
         // 消去0回复
-        PaginationDTO pagination2 = questionService.listZeroCommentQuestion(page,size);
+        //PaginationDTO pagination2 = questionService.listZeroCommentQuestion(page,size);
 
+
+        PaginationDTO pagination =  questionService.listNewQuestion(search, tag, sort,page,size);
 
         // 获取热评
         List<String> tags = hotTagCache.getHots();
-        System.out.println(tags);
 
         model.addAttribute("pagination", pagination);
-        model.addAttribute("pagination2", pagination2);
+        //model.addAttribute("pagination2", pagination2);
         model.addAttribute("search", search);
         model.addAttribute("tag",tag);
         model.addAttribute("tags",tags);
+        model.addAttribute("sort",sort);
         return "index";
     }
 

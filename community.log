@@ -3083,3 +3083,833 @@ java.io.StreamCorruptedException: invalid type code: 00
 2022-04-17 17:56:20.959  INFO 39204 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-04-17 17:56:20.962  INFO 39204 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-04-17 17:56:20.966  INFO 39204 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-04-17 21:36:35.572  INFO 43516 --- [restartedMain] c.l.community.CommunityApplication       : Starting CommunityApplication using Java 1.8.0_271 on LAPTOP-5OV4QMU1 with PID 43516 (D:\kingkongCommunity\target\classes started by crazy×Þ in D:\kingkongCommunity)
+2022-04-17 21:36:35.572  INFO 43516 --- [restartedMain] c.l.community.CommunityApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-04-17 21:36:35.618  INFO 43516 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-17 21:36:35.618  INFO 43516 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-17 21:36:36.290  INFO 43516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-17 21:36:36.321  INFO 43516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
+2022-04-17 21:36:36.931  INFO 43516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8777 (http)
+2022-04-17 21:36:36.931  INFO 43516 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-04-17 21:36:36.931  INFO 43516 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-04-17 21:36:36.931  INFO 43516 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-17 21:36:36.946  INFO 43516 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-04-17 21:36:36.962  INFO 43516 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-17 21:36:36.962  INFO 43516 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-17 21:36:37.071  INFO 43516 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-17 21:36:37.071  INFO 43516 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1453 ms
+2022-04-17 21:36:37.118  WARN 43516 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Cannot deserialize session attribute [ads] for session [9FC73D0FA779F98CAC7FAE051D428C81]
+2022-04-17 21:36:37.134 ERROR 43516 --- [restartedMain] o.a.catalina.session.StandardManager     : Exception loading sessions from persistent storage
+
+java.io.InvalidClassException: java.io.ObjectStreamException; unable to create instance
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2172) ~[na:1.8.0_271]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1665) ~[na:1.8.0_271]
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:501) ~[na:1.8.0_271]
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:459) ~[na:1.8.0_271]
+	at org.apache.catalina.session.StandardSession.doReadObject(StandardSession.java:1563) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.session.StandardSession.readObjectData(StandardSession.java:1050) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.session.StandardManager.doLoad(StandardManager.java:219) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.session.StandardManager.load(StandardManager.java:162) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.session.StandardManager.startInternal(StandardManager.java:356) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5247) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_271]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) [na:1.8.0_271]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_271]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) [na:1.8.0_271]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:263) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:432) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:927) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:478) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:182) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:160) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577) [spring-context-5.3.16.jar:5.3.16]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.4.jar:2.6.4]
+	at com.littlekingkong.community.CommunityApplication.main(CommunityApplication.java:13) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_271]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.6.2.jar:2.6.2]
+Caused by: java.lang.InstantiationException: null
+	at java.io.ObjectStreamClass.newInstance(ObjectStreamClass.java:1134) ~[na:1.8.0_271]
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2169) ~[na:1.8.0_271]
+	... 51 common frames omitted
+Caused by: java.lang.InstantiationError: java.io.ObjectStreamException
+	at sun.reflect.GeneratedSerializationConstructorAccessor28.newInstance(Unknown Source) ~[na:na]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_271]
+	at java.io.ObjectStreamClass.newInstance(ObjectStreamClass.java:1102) ~[na:1.8.0_271]
+	... 52 common frames omitted
+
+2022-04-17 21:36:37.212  INFO 43516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-04-17 21:36:38.148  INFO 43516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-04-17 21:36:38.195  INFO 43516 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.3 by Redgate
+2022-04-17 21:36:38.195  INFO 43516 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/kingForum (MySQL 8.0)
+2022-04-17 21:36:38.366  INFO 43516 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 13 migrations (execution time 00:00.064s)
+2022-04-17 21:36:38.382  INFO 43516 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `kingforum`: 14
+2022-04-17 21:36:38.382  INFO 43516 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `kingforum` is up to date. No migration necessary.
+2022-04-17 21:36:38.523  INFO 43516 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-17 21:36:38.569  INFO 43516 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-04-17 21:36:38.741  INFO 43516 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-17 21:36:38.866  INFO 43516 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-17 21:36:39.007  INFO 43516 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-17 21:36:39.007  INFO 43516 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 21:36:39.569  INFO 43516 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-17 21:36:39.882  INFO 43516 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-17 21:36:39.913  INFO 43516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8777 (http) with context path ''
+2022-04-17 21:36:39.929  INFO 43516 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule start Sun Apr 17 21:36:39 CST 2022
+2022-04-17 21:36:39.929  INFO 43516 --- [restartedMain] c.l.community.CommunityApplication       : Started CommunityApplication in 4.851 seconds (JVM running for 6.266)
+2022-04-17 21:36:39.975  INFO 43516 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule stop Sun Apr 17 21:36:39 CST 2022
+2022-04-17 21:37:09.862  INFO 43516 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 21:37:09.881  INFO 43516 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-04-17 21:37:09.881  INFO 43516 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-04-17 21:37:13.264  INFO 43456 --- [restartedMain] c.l.community.CommunityApplication       : Starting CommunityApplication using Java 1.8.0_271 on LAPTOP-5OV4QMU1 with PID 43456 (D:\kingkongCommunity\target\classes started by crazy×Þ in D:\kingkongCommunity)
+2022-04-17 21:37:13.264  INFO 43456 --- [restartedMain] c.l.community.CommunityApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-04-17 21:37:13.295  INFO 43456 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-17 21:37:13.311  INFO 43456 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-17 21:37:13.923  INFO 43456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-17 21:37:13.938  INFO 43456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
+2022-04-17 21:37:14.515  INFO 43456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8777 (http)
+2022-04-17 21:37:14.515  INFO 43456 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-04-17 21:37:14.515  INFO 43456 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-04-17 21:37:14.515  INFO 43456 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-17 21:37:14.515  INFO 43456 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-04-17 21:37:14.515  INFO 43456 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-17 21:37:14.515  INFO 43456 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-17 21:37:14.630  INFO 43456 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-17 21:37:14.630  INFO 43456 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1319 ms
+2022-04-17 21:37:14.756  INFO 43456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-04-17 21:37:15.515  INFO 43456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-04-17 21:37:15.547  INFO 43456 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.3 by Redgate
+2022-04-17 21:37:15.547  INFO 43456 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/kingForum (MySQL 8.0)
+2022-04-17 21:37:15.609  INFO 43456 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 13 migrations (execution time 00:00.024s)
+2022-04-17 21:37:15.609  INFO 43456 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `kingforum`: 14
+2022-04-17 21:37:15.609  INFO 43456 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `kingforum` is up to date. No migration necessary.
+2022-04-17 21:37:15.703  INFO 43456 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-17 21:37:15.750  INFO 43456 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-04-17 21:37:15.890  INFO 43456 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-17 21:37:15.985  INFO 43456 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-17 21:37:16.110  INFO 43456 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-17 21:37:16.110  INFO 43456 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 21:37:16.615  INFO 43456 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-17 21:37:16.879  INFO 43456 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-17 21:37:16.927  INFO 43456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8777 (http) with context path ''
+2022-04-17 21:37:16.927  INFO 43456 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule start Sun Apr 17 21:37:16 CST 2022
+2022-04-17 21:37:16.927  INFO 43456 --- [restartedMain] c.l.community.CommunityApplication       : Started CommunityApplication in 4.085 seconds (JVM running for 5.706)
+2022-04-17 21:37:16.975  INFO 43456 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule stop Sun Apr 17 21:37:16 CST 2022
+2022-04-17 21:37:28.424  INFO 43456 --- [http-nio-8777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-17 21:37:28.424  INFO 43456 --- [http-nio-8777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-17 21:37:28.424  INFO 43456 --- [http-nio-8777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-04-17 21:37:28.590  WARN 43456 --- [http-nio-8777-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.jdbc.BadSqlGrammarException: <EOL><EOL>### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null,null' at line 4<EOL><EOL>### The error may exist in file [D:\kingkongCommunity\target\classes\mapper\QuestionMapper.xml]<EOL><EOL>### The error may involve defaultParameterMap<EOL><EOL>### The error occurred while setting parameters<EOL><EOL>### SQL: select count(*) from QUESTION                    order by gmt_create desc         limit ?,?<EOL><EOL>### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null,null' at line 4<EOL>; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null,null' at line 4]
+2022-04-17 21:39:38.307  INFO 43456 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 21:39:38.307  INFO 43456 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-04-17 21:39:38.322  INFO 43456 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-04-17 21:45:33.112  INFO 45048 --- [restartedMain] c.l.community.CommunityApplication       : Starting CommunityApplication using Java 1.8.0_271 on LAPTOP-5OV4QMU1 with PID 45048 (D:\kingkongCommunity\target\classes started by crazy×Þ in D:\kingkongCommunity)
+2022-04-17 21:45:33.112  INFO 45048 --- [restartedMain] c.l.community.CommunityApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-04-17 21:45:33.159  INFO 45048 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-17 21:45:33.159  INFO 45048 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-17 21:45:33.780  INFO 45048 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-17 21:45:33.795  INFO 45048 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JPA repository interfaces.
+2022-04-17 21:45:34.367  INFO 45048 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8777 (http)
+2022-04-17 21:45:34.367  INFO 45048 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-04-17 21:45:34.367  INFO 45048 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-04-17 21:45:34.367  INFO 45048 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-17 21:45:34.367  INFO 45048 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-04-17 21:45:34.383  INFO 45048 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-17 21:45:34.383  INFO 45048 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-17 21:45:34.492  INFO 45048 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-17 21:45:34.492  INFO 45048 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1333 ms
+2022-04-17 21:45:34.523  WARN 45048 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Cannot deserialize session attribute [ads] for session [AB7C61E46F40AF9F5F7D70F707F2292B]
+2022-04-17 21:45:34.617  INFO 45048 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-04-17 21:45:35.439  INFO 45048 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-04-17 21:45:35.486  INFO 45048 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.3 by Redgate
+2022-04-17 21:45:35.486  INFO 45048 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/kingForum (MySQL 8.0)
+2022-04-17 21:45:35.532  INFO 45048 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 13 migrations (execution time 00:00.029s)
+2022-04-17 21:45:35.548  INFO 45048 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `kingforum`: 14
+2022-04-17 21:45:35.548  INFO 45048 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `kingforum` is up to date. No migration necessary.
+2022-04-17 21:45:35.673  INFO 45048 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-17 21:45:35.720  INFO 45048 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-04-17 21:45:35.845  INFO 45048 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-17 21:45:35.949  INFO 45048 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-17 21:45:36.090  INFO 45048 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-17 21:45:36.090  INFO 45048 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 21:45:36.652  INFO 45048 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-17 21:45:36.888  INFO 45048 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-17 21:45:36.919  INFO 45048 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8777 (http) with context path ''
+2022-04-17 21:45:36.935  INFO 45048 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule start Sun Apr 17 21:45:36 CST 2022
+2022-04-17 21:45:36.935  INFO 45048 --- [restartedMain] c.l.community.CommunityApplication       : Started CommunityApplication in 4.271 seconds (JVM running for 5.583)
+2022-04-17 21:45:36.970  INFO 45048 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule stop Sun Apr 17 21:45:36 CST 2022
+2022-04-17 21:46:08.925  INFO 45048 --- [http-nio-8777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-17 21:46:08.925  INFO 45048 --- [http-nio-8777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-17 21:46:08.940  INFO 45048 --- [http-nio-8777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2022-04-17 22:00:17.422  INFO 45048 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:00:17.422  INFO 45048 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-04-17 22:00:17.437  INFO 45048 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-04-17 22:00:24.161  INFO 22484 --- [restartedMain] c.l.community.CommunityApplication       : Starting CommunityApplication using Java 1.8.0_271 on LAPTOP-5OV4QMU1 with PID 22484 (D:\kingkongCommunity\target\classes started by crazy×Þ in D:\kingkongCommunity)
+2022-04-17 22:00:24.161  INFO 22484 --- [restartedMain] c.l.community.CommunityApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-04-17 22:00:24.239  INFO 22484 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-17 22:00:24.239  INFO 22484 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-17 22:00:24.974  INFO 22484 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-17 22:00:24.989  INFO 22484 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2022-04-17 22:00:25.741  INFO 22484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8777 (http)
+2022-04-17 22:00:25.741  INFO 22484 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-04-17 22:00:25.741  INFO 22484 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-04-17 22:00:25.741  INFO 22484 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-17 22:00:25.757  INFO 22484 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-04-17 22:00:25.757  INFO 22484 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-17 22:00:25.757  INFO 22484 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-17 22:00:25.898  INFO 22484 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-17 22:00:25.898  INFO 22484 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1659 ms
+2022-04-17 22:00:25.959  WARN 22484 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Cannot deserialize session attribute [ads] for session [7FDC7EB46FAB2178117629E824391153]
+2022-04-17 22:00:26.084  INFO 22484 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-04-17 22:00:26.980  INFO 22484 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-04-17 22:00:27.058  INFO 22484 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.3 by Redgate
+2022-04-17 22:00:27.058  INFO 22484 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/kingForum (MySQL 8.0)
+2022-04-17 22:00:27.121  INFO 22484 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 13 migrations (execution time 00:00.039s)
+2022-04-17 22:00:27.136  INFO 22484 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `kingforum`: 14
+2022-04-17 22:00:27.136  INFO 22484 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `kingforum` is up to date. No migration necessary.
+2022-04-17 22:00:27.277  INFO 22484 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-17 22:00:27.339  INFO 22484 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-04-17 22:00:27.512  INFO 22484 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-17 22:00:27.668  INFO 22484 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-17 22:00:27.845  INFO 22484 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-17 22:00:27.861  INFO 22484 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:00:28.476  INFO 22484 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-17 22:00:28.773  INFO 22484 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-17 22:00:28.806  INFO 22484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8777 (http) with context path ''
+2022-04-17 22:00:28.822  INFO 22484 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule start Sun Apr 17 22:00:28 CST 2022
+2022-04-17 22:00:28.822  INFO 22484 --- [restartedMain] c.l.community.CommunityApplication       : Started CommunityApplication in 5.351 seconds (JVM running for 7.011)
+2022-04-17 22:00:28.868  INFO 22484 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule stop Sun Apr 17 22:00:28 CST 2022
+2022-04-17 22:01:05.876  INFO 22484 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:01:05.891  INFO 22484 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-04-17 22:01:05.907  INFO 22484 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-04-17 22:01:10.370  INFO 35588 --- [restartedMain] c.l.community.CommunityApplication       : Starting CommunityApplication using Java 1.8.0_271 on LAPTOP-5OV4QMU1 with PID 35588 (D:\kingkongCommunity\target\classes started by crazy×Þ in D:\kingkongCommunity)
+2022-04-17 22:01:10.370  INFO 35588 --- [restartedMain] c.l.community.CommunityApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-04-17 22:01:10.433  INFO 35588 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-17 22:01:10.433  INFO 35588 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-17 22:01:11.172  INFO 35588 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-17 22:01:11.188  INFO 35588 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
+2022-04-17 22:01:11.862  INFO 35588 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8777 (http)
+2022-04-17 22:01:11.862  INFO 35588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-04-17 22:01:11.862  INFO 35588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-04-17 22:01:11.862  INFO 35588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-17 22:01:11.862  INFO 35588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-04-17 22:01:11.862  INFO 35588 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-17 22:01:11.862  INFO 35588 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-17 22:01:12.014  INFO 35588 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-17 22:01:12.014  INFO 35588 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1581 ms
+2022-04-17 22:01:12.154  INFO 35588 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-04-17 22:01:12.936  INFO 35588 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-04-17 22:01:12.984  INFO 35588 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.3 by Redgate
+2022-04-17 22:01:12.984  INFO 35588 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/kingForum (MySQL 8.0)
+2022-04-17 22:01:13.039  INFO 35588 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 13 migrations (execution time 00:00.031s)
+2022-04-17 22:01:13.055  INFO 35588 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `kingforum`: 14
+2022-04-17 22:01:13.055  INFO 35588 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `kingforum` is up to date. No migration necessary.
+2022-04-17 22:01:13.180  INFO 35588 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-17 22:01:13.242  INFO 35588 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-04-17 22:01:13.400  INFO 35588 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-17 22:01:13.525  INFO 35588 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-17 22:01:13.681  INFO 35588 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-17 22:01:13.697  INFO 35588 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:01:14.312  INFO 35588 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-17 22:01:14.578  INFO 35588 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-17 22:01:14.625  INFO 35588 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8777 (http) with context path ''
+2022-04-17 22:01:14.640  INFO 35588 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule start Sun Apr 17 22:01:14 CST 2022
+2022-04-17 22:01:14.640  INFO 35588 --- [restartedMain] c.l.community.CommunityApplication       : Started CommunityApplication in 4.797 seconds (JVM running for 6.363)
+2022-04-17 22:01:14.680  INFO 35588 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule stop Sun Apr 17 22:01:14 CST 2022
+2022-04-17 22:01:29.719  INFO 35588 --- [http-nio-8777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-17 22:01:29.719  INFO 35588 --- [http-nio-8777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-17 22:01:29.719  INFO 35588 --- [http-nio-8777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-04-17 22:02:11.546  WARN 35588 --- [http-nio-8777-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'offset' in 'class com.littlekingkong.community.dto.QuestionQueryDTO']
+2022-04-17 22:02:11.546  WARN 35588 --- [http-nio-8777-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'offset' in 'class com.littlekingkong.community.dto.QuestionQueryDTO']
+2022-04-17 22:02:12.432  INFO 35588 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:02:12.437  INFO 35588 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-04-17 22:02:12.445  INFO 35588 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-04-17 22:02:15.899  INFO 42976 --- [restartedMain] c.l.community.CommunityApplication       : Starting CommunityApplication using Java 1.8.0_271 on LAPTOP-5OV4QMU1 with PID 42976 (D:\kingkongCommunity\target\classes started by crazy×Þ in D:\kingkongCommunity)
+2022-04-17 22:02:15.901  INFO 42976 --- [restartedMain] c.l.community.CommunityApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-04-17 22:02:15.951  INFO 42976 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-17 22:02:15.952  INFO 42976 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-17 22:02:16.623  INFO 42976 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-17 22:02:16.656  INFO 42976 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
+2022-04-17 22:02:17.287  INFO 42976 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8777 (http)
+2022-04-17 22:02:17.287  INFO 42976 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-04-17 22:02:17.287  INFO 42976 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-04-17 22:02:17.287  INFO 42976 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-17 22:02:17.287  INFO 42976 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-04-17 22:02:17.303  INFO 42976 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-17 22:02:17.303  INFO 42976 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-17 22:02:17.415  INFO 42976 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-17 22:02:17.415  INFO 42976 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1463 ms
+2022-04-17 22:02:17.462  WARN 42976 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Cannot deserialize session attribute [ads] for session [AB7C61E46F40AF9F5F7D70F707F2292B]
+2022-04-17 22:02:17.541  INFO 42976 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-04-17 22:02:18.462  INFO 42976 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-04-17 22:02:18.493  INFO 42976 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.3 by Redgate
+2022-04-17 22:02:18.493  INFO 42976 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/kingForum (MySQL 8.0)
+2022-04-17 22:02:18.555  INFO 42976 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 13 migrations (execution time 00:00.028s)
+2022-04-17 22:02:18.571  INFO 42976 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `kingforum`: 14
+2022-04-17 22:02:18.571  INFO 42976 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `kingforum` is up to date. No migration necessary.
+2022-04-17 22:02:18.680  INFO 42976 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-17 22:02:18.727  INFO 42976 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-04-17 22:02:18.852  INFO 42976 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-17 22:02:18.963  INFO 42976 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-17 22:02:19.090  INFO 42976 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-17 22:02:19.090  INFO 42976 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:02:19.666  INFO 42976 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-17 22:02:20.291  INFO 42976 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-17 22:02:20.338  INFO 42976 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8777 (http) with context path ''
+2022-04-17 22:02:20.338  INFO 42976 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule start Sun Apr 17 22:02:20 CST 2022
+2022-04-17 22:02:20.353  INFO 42976 --- [restartedMain] c.l.community.CommunityApplication       : Started CommunityApplication in 5.015 seconds (JVM running for 6.854)
+2022-04-17 22:02:20.400  INFO 42976 --- [http-nio-8777-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-17 22:02:20.400  INFO 42976 --- [http-nio-8777-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-17 22:02:20.400  INFO 42976 --- [http-nio-8777-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-04-17 22:02:20.400  INFO 42976 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule stop Sun Apr 17 22:02:20 CST 2022
+2022-04-17 22:03:00.910  INFO 42976 --- [Thread-14] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:03:00.925  INFO 42976 --- [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-04-17 22:03:00.925  INFO 42976 --- [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-04-17 22:03:01.175  INFO 42976 --- [restartedMain] c.l.community.CommunityApplication       : Starting CommunityApplication using Java 1.8.0_271 on LAPTOP-5OV4QMU1 with PID 42976 (D:\kingkongCommunity\target\classes started by crazy×Þ in D:\kingkongCommunity)
+2022-04-17 22:03:01.191  INFO 42976 --- [restartedMain] c.l.community.CommunityApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-04-17 22:03:01.410  INFO 42976 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-17 22:03:01.425  INFO 42976 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2022-04-17 22:03:01.617  INFO 42976 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8777 (http)
+2022-04-17 22:03:01.617  INFO 42976 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-04-17 22:03:01.617  INFO 42976 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-04-17 22:03:01.617  INFO 42976 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-17 22:03:01.617  INFO 42976 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-04-17 22:03:01.617  INFO 42976 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-17 22:03:01.617  INFO 42976 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-17 22:03:01.648  INFO 42976 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-17 22:03:01.648  INFO 42976 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 457 ms
+2022-04-17 22:03:01.679  INFO 42976 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2022-04-17 22:03:01.695  INFO 42976 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2022-04-17 22:03:01.695  INFO 42976 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.3 by Redgate
+2022-04-17 22:03:01.695  INFO 42976 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/kingForum (MySQL 8.0)
+2022-04-17 22:03:01.726  INFO 42976 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 13 migrations (execution time 00:00.015s)
+2022-04-17 22:03:01.742  INFO 42976 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `kingforum`: 14
+2022-04-17 22:03:01.742  INFO 42976 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `kingforum` is up to date. No migration necessary.
+2022-04-17 22:03:01.757  INFO 42976 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-17 22:03:01.757  INFO 42976 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-17 22:03:01.773  INFO 42976 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-17 22:03:01.773  INFO 42976 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:03:01.966  INFO 42976 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-17 22:03:02.055  INFO 42976 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-17 22:03:02.078  INFO 42976 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8777 (http) with context path ''
+2022-04-17 22:03:02.084  INFO 42976 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule start Sun Apr 17 22:03:02 CST 2022
+2022-04-17 22:03:02.085  INFO 42976 --- [restartedMain] c.l.community.CommunityApplication       : Started CommunityApplication in 0.941 seconds (JVM running for 48.582)
+2022-04-17 22:03:02.089  INFO 42976 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-04-17 22:03:02.100  INFO 42976 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule stop Sun Apr 17 22:03:02 CST 2022
+2022-04-17 22:03:02.247  INFO 42976 --- [http-nio-8777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-17 22:03:02.247  INFO 42976 --- [http-nio-8777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-17 22:03:02.249  INFO 42976 --- [http-nio-8777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-04-17 22:03:02.305  WARN 42976 --- [http-nio-8777-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'offset' in 'class com.littlekingkong.community.dto.QuestionQueryDTO']
+2022-04-17 22:03:04.152  INFO 42976 --- [Thread-20] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:03:04.153  INFO 42976 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2022-04-17 22:03:04.162  INFO 42976 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2022-04-17 22:03:04.352  INFO 42976 --- [restartedMain] c.l.community.CommunityApplication       : Starting CommunityApplication using Java 1.8.0_271 on LAPTOP-5OV4QMU1 with PID 42976 (D:\kingkongCommunity\target\classes started by crazy×Þ in D:\kingkongCommunity)
+2022-04-17 22:03:04.352  INFO 42976 --- [restartedMain] c.l.community.CommunityApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-04-17 22:03:04.508  INFO 42976 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-17 22:03:04.524  INFO 42976 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2022-04-17 22:03:04.679  INFO 42976 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8777 (http)
+2022-04-17 22:03:04.679  INFO 42976 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-04-17 22:03:04.679  INFO 42976 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-04-17 22:03:04.679  INFO 42976 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-17 22:03:04.680  INFO 42976 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-04-17 22:03:04.680  INFO 42976 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-17 22:03:04.680  INFO 42976 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-17 22:03:04.705  INFO 42976 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-17 22:03:04.705  INFO 42976 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 353 ms
+2022-04-17 22:03:04.713  WARN 42976 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Cannot deserialize session attribute [ads] for session [A2846C324DED2AB44705F72160FDC433]
+2022-04-17 22:03:04.735  INFO 42976 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2022-04-17 22:03:04.758  INFO 42976 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2022-04-17 22:03:04.759  INFO 42976 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.3 by Redgate
+2022-04-17 22:03:04.759  INFO 42976 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/kingForum (MySQL 8.0)
+2022-04-17 22:03:04.790  INFO 42976 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 13 migrations (execution time 00:00.019s)
+2022-04-17 22:03:04.797  INFO 42976 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `kingforum`: 14
+2022-04-17 22:03:04.798  INFO 42976 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `kingforum` is up to date. No migration necessary.
+2022-04-17 22:03:04.814  INFO 42976 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-17 22:03:04.819  INFO 42976 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-17 22:03:04.823  INFO 42976 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-17 22:03:04.824  INFO 42976 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:03:04.951  INFO 42976 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-17 22:03:05.003  INFO 42976 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-17 22:03:05.014  INFO 42976 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8777 (http) with context path ''
+2022-04-17 22:03:05.019  INFO 42976 --- [restartedMain] c.l.community.CommunityApplication       : Started CommunityApplication in 0.69 seconds (JVM running for 51.516)
+2022-04-17 22:03:05.019  INFO 42976 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule start Sun Apr 17 22:03:05 CST 2022
+2022-04-17 22:03:05.022  INFO 42976 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-04-17 22:03:05.032  INFO 42976 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule stop Sun Apr 17 22:03:05 CST 2022
+2022-04-17 22:03:09.642  INFO 42976 --- [http-nio-8777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-17 22:03:09.642  INFO 42976 --- [http-nio-8777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-17 22:03:09.644  INFO 42976 --- [http-nio-8777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-04-17 22:03:09.666  WARN 42976 --- [http-nio-8777-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'offset' in 'class com.littlekingkong.community.dto.QuestionQueryDTO']
+2022-04-17 22:03:13.039  WARN 42976 --- [http-nio-8777-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'offset' in 'class com.littlekingkong.community.dto.QuestionQueryDTO']
+2022-04-17 22:03:37.270  INFO 42976 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:03:37.270  INFO 42976 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2022-04-17 22:03:37.286  INFO 42976 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2022-04-17 22:04:04.047  INFO 43736 --- [restartedMain] c.l.community.CommunityApplication       : Starting CommunityApplication using Java 1.8.0_271 on LAPTOP-5OV4QMU1 with PID 43736 (D:\kingkongCommunity\target\classes started by crazy×Þ in D:\kingkongCommunity)
+2022-04-17 22:04:04.047  INFO 43736 --- [restartedMain] c.l.community.CommunityApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-04-17 22:04:04.121  INFO 43736 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-17 22:04:04.121  INFO 43736 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-17 22:04:04.803  INFO 43736 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-17 22:04:04.831  INFO 43736 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 JPA repository interfaces.
+2022-04-17 22:04:05.485  INFO 43736 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8777 (http)
+2022-04-17 22:04:05.485  INFO 43736 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-04-17 22:04:05.485  INFO 43736 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-04-17 22:04:05.485  INFO 43736 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-17 22:04:05.485  INFO 43736 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-04-17 22:04:05.485  INFO 43736 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-17 22:04:05.501  INFO 43736 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-17 22:04:05.630  INFO 43736 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-17 22:04:05.630  INFO 43736 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1509 ms
+2022-04-17 22:04:05.728  WARN 43736 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Cannot deserialize session attribute [ads] for session [A2846C324DED2AB44705F72160FDC433]
+2022-04-17 22:04:05.844  INFO 43736 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-04-17 22:04:06.923  INFO 43736 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-04-17 22:04:06.972  INFO 43736 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.3 by Redgate
+2022-04-17 22:04:06.972  INFO 43736 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/kingForum (MySQL 8.0)
+2022-04-17 22:04:07.083  INFO 43736 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 13 migrations (execution time 00:00.063s)
+2022-04-17 22:04:07.103  INFO 43736 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `kingforum`: 14
+2022-04-17 22:04:07.104  INFO 43736 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `kingforum` is up to date. No migration necessary.
+2022-04-17 22:04:07.271  INFO 43736 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-17 22:04:07.336  INFO 43736 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-04-17 22:04:07.487  INFO 43736 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-17 22:04:07.646  INFO 43736 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-17 22:04:07.817  INFO 43736 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-17 22:04:07.830  INFO 43736 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:04:08.399  INFO 43736 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-17 22:04:08.681  INFO 43736 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-17 22:04:08.716  INFO 43736 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8777 (http) with context path ''
+2022-04-17 22:04:08.716  INFO 43736 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule start Sun Apr 17 22:04:08 CST 2022
+2022-04-17 22:04:08.716  INFO 43736 --- [restartedMain] c.l.community.CommunityApplication       : Started CommunityApplication in 5.109 seconds (JVM running for 6.589)
+2022-04-17 22:04:08.762  INFO 43736 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule stop Sun Apr 17 22:04:08 CST 2022
+2022-04-17 22:04:29.802  INFO 43736 --- [http-nio-8777-exec-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-17 22:04:29.802  INFO 43736 --- [http-nio-8777-exec-6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-17 22:04:29.803  INFO 43736 --- [http-nio-8777-exec-6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-04-17 22:04:32.588 ERROR 43736 --- [http-nio-8777-exec-6] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8777-exec-6] Exception processing template "index": An error happened during template parsing (template: "class path resource [templates/index.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/index.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) [thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) [thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) [thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) [thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1401) [spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1145) [spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1084) [spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) [spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.3.16.jar:5.3.16]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) [tomcat-embed-core-9.0.58.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.16.jar:5.3.16]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.58.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.16.jar:5.3.16]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.16.jar:5.3.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.16.jar:5.3.16]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.16.jar:5.3.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.16.jar:5.3.16]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.16.jar:5.3.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:359) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1735) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_271]
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "pagination.data" (template: "index" - line 54, col 44)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "pagination.data" (template: "index" - line 54, col 44)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:125) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.standard.processor.StandardEachTagProcessor.doProcess(StandardEachTagProcessor.java:73) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	... 50 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'data' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:213) ~[spring-expression-5.3.16.jar:5.3.16]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:104) ~[spring-expression-5.3.16.jar:5.3.16]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:51) ~[spring-expression-5.3.16.jar:5.3.16]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:406) ~[spring-expression-5.3.16.jar:5.3.16]
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:92) ~[spring-expression-5.3.16.jar:5.3.16]
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112) ~[spring-expression-5.3.16.jar:5.3.16]
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:337) ~[spring-expression-5.3.16.jar:5.3.16]
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	... 70 common frames omitted
+
+2022-04-17 22:04:32.590 ERROR 43736 --- [http-nio-8777-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/index.html]")] with root cause
+
+org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'data' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:213) ~[spring-expression-5.3.16.jar:5.3.16]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:104) ~[spring-expression-5.3.16.jar:5.3.16]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:51) ~[spring-expression-5.3.16.jar:5.3.16]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:406) ~[spring-expression-5.3.16.jar:5.3.16]
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:92) ~[spring-expression-5.3.16.jar:5.3.16]
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112) ~[spring-expression-5.3.16.jar:5.3.16]
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:337) ~[spring-expression-5.3.16.jar:5.3.16]
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:125) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.standard.processor.StandardEachTagProcessor.doProcess(StandardEachTagProcessor.java:73) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1401) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1145) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1084) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.58.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.58.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.16.jar:5.3.16]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.16.jar:5.3.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.16.jar:5.3.16]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.16.jar:5.3.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.16.jar:5.3.16]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.16.jar:5.3.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:359) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1735) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_271]
+
+2022-04-17 22:08:10.264  INFO 43736 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:08:10.279  INFO 43736 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-04-17 22:08:10.279  INFO 43736 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-04-17 22:09:10.536  INFO 28532 --- [restartedMain] c.l.community.CommunityApplication       : Starting CommunityApplication using Java 1.8.0_271 on LAPTOP-5OV4QMU1 with PID 28532 (D:\kingkongCommunity\target\classes started by crazy×Þ in D:\kingkongCommunity)
+2022-04-17 22:09:10.536  INFO 28532 --- [restartedMain] c.l.community.CommunityApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-04-17 22:09:10.583  INFO 28532 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-17 22:09:10.583  INFO 28532 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-17 22:09:11.210  INFO 28532 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-17 22:09:11.226  INFO 28532 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JPA repository interfaces.
+2022-04-17 22:09:11.800  INFO 28532 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8777 (http)
+2022-04-17 22:09:11.800  INFO 28532 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-04-17 22:09:11.800  INFO 28532 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-04-17 22:09:11.800  INFO 28532 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-17 22:09:11.800  INFO 28532 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-04-17 22:09:11.800  INFO 28532 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-17 22:09:11.800  INFO 28532 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-17 22:09:11.910  INFO 28532 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-17 22:09:11.910  INFO 28532 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1327 ms
+2022-04-17 22:09:11.957  WARN 28532 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Cannot deserialize session attribute [ads] for session [F1CF8DC9A9B9CFE303615DB9DD225215]
+2022-04-17 22:09:11.957 ERROR 28532 --- [restartedMain] o.a.catalina.session.StandardManager     : Exception loading sessions from persistent storage
+
+java.io.InvalidClassException: java.io.ObjectStreamException; unable to create instance
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2172) ~[na:1.8.0_271]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1665) ~[na:1.8.0_271]
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:501) ~[na:1.8.0_271]
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:459) ~[na:1.8.0_271]
+	at org.apache.catalina.session.StandardSession.doReadObject(StandardSession.java:1563) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.session.StandardSession.readObjectData(StandardSession.java:1050) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.session.StandardManager.doLoad(StandardManager.java:219) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.session.StandardManager.load(StandardManager.java:162) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.session.StandardManager.startInternal(StandardManager.java:356) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5247) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_271]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) [na:1.8.0_271]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_271]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) [na:1.8.0_271]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:263) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:432) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:927) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:478) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:182) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:160) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577) [spring-context-5.3.16.jar:5.3.16]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.4.jar:2.6.4]
+	at com.littlekingkong.community.CommunityApplication.main(CommunityApplication.java:13) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_271]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.6.2.jar:2.6.2]
+Caused by: java.lang.InstantiationException: null
+	at java.io.ObjectStreamClass.newInstance(ObjectStreamClass.java:1134) ~[na:1.8.0_271]
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2169) ~[na:1.8.0_271]
+	... 51 common frames omitted
+Caused by: java.lang.InstantiationError: java.io.ObjectStreamException
+	at sun.reflect.GeneratedSerializationConstructorAccessor28.newInstance(Unknown Source) ~[na:na]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_271]
+	at java.io.ObjectStreamClass.newInstance(ObjectStreamClass.java:1102) ~[na:1.8.0_271]
+	... 52 common frames omitted
+
+2022-04-17 22:09:12.044  INFO 28532 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-04-17 22:09:12.854  INFO 28532 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-04-17 22:09:12.885  INFO 28532 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.3 by Redgate
+2022-04-17 22:09:12.885  INFO 28532 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/kingForum (MySQL 8.0)
+2022-04-17 22:09:12.947  INFO 28532 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 13 migrations (execution time 00:00.026s)
+2022-04-17 22:09:12.947  INFO 28532 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `kingforum`: 14
+2022-04-17 22:09:12.947  INFO 28532 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `kingforum` is up to date. No migration necessary.
+2022-04-17 22:09:13.057  INFO 28532 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-17 22:09:13.104  INFO 28532 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-04-17 22:09:13.243  INFO 28532 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-17 22:09:13.338  INFO 28532 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-17 22:09:13.463  INFO 28532 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-17 22:09:13.463  INFO 28532 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:09:13.978  INFO 28532 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-17 22:09:14.265  INFO 28532 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-17 22:09:14.303  INFO 28532 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8777 (http) with context path ''
+2022-04-17 22:09:14.319  INFO 28532 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule start Sun Apr 17 22:09:14 CST 2022
+2022-04-17 22:09:14.319  INFO 28532 --- [restartedMain] c.l.community.CommunityApplication       : Started CommunityApplication in 4.215 seconds (JVM running for 5.649)
+2022-04-17 22:09:14.350  INFO 28532 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule stop Sun Apr 17 22:09:14 CST 2022
+2022-04-17 22:09:29.437  INFO 28532 --- [http-nio-8777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-17 22:09:29.437  INFO 28532 --- [http-nio-8777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-17 22:09:29.437  INFO 28532 --- [http-nio-8777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-04-17 22:09:29.526  WARN 28532 --- [http-nio-8777-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 30]
+2022-04-17 22:12:17.653  INFO 28532 --- [Thread-13] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:12:17.653  INFO 28532 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-04-17 22:12:17.674  INFO 28532 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-04-17 22:12:18.049  INFO 28532 --- [restartedMain] c.l.community.CommunityApplication       : Starting CommunityApplication using Java 1.8.0_271 on LAPTOP-5OV4QMU1 with PID 28532 (D:\kingkongCommunity\target\classes started by crazy×Þ in D:\kingkongCommunity)
+2022-04-17 22:12:18.049  INFO 28532 --- [restartedMain] c.l.community.CommunityApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-04-17 22:12:18.422  INFO 28532 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-17 22:12:18.438  INFO 28532 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JPA repository interfaces.
+2022-04-17 22:12:18.688  INFO 28532 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8777 (http)
+2022-04-17 22:12:18.688  INFO 28532 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-04-17 22:12:18.688  INFO 28532 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-04-17 22:12:18.688  INFO 28532 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-17 22:12:18.688  INFO 28532 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-04-17 22:12:18.688  INFO 28532 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-17 22:12:18.703  INFO 28532 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-17 22:12:18.734  INFO 28532 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-17 22:12:18.734  INFO 28532 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 685 ms
+2022-04-17 22:12:18.750  WARN 28532 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Cannot deserialize session attribute [ads] for session [F1CF8DC9A9B9CFE303615DB9DD225215]
+2022-04-17 22:12:18.781  INFO 28532 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2022-04-17 22:12:18.828  INFO 28532 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2022-04-17 22:12:18.828  INFO 28532 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.3 by Redgate
+2022-04-17 22:12:18.828  INFO 28532 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/kingForum (MySQL 8.0)
+2022-04-17 22:12:18.859  INFO 28532 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 13 migrations (execution time 00:00.015s)
+2022-04-17 22:12:18.859  INFO 28532 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `kingforum`: 14
+2022-04-17 22:12:18.859  INFO 28532 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `kingforum` is up to date. No migration necessary.
+2022-04-17 22:12:18.874  INFO 28532 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-17 22:12:18.890  INFO 28532 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-17 22:12:18.890  INFO 28532 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-17 22:12:18.890  INFO 28532 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:12:18.984  WARN 28532 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'indexController': Unsatisfied dependency expressed through field 'questionService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.littlekingkong.community.service.QuestionService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-04-17 22:12:18.984  INFO 28532 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:12:18.984  INFO 28532 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2022-04-17 22:12:18.999  INFO 28532 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2022-04-17 22:12:18.999  INFO 28532 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-04-17 22:12:19.015  INFO 28532 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-04-17 22:12:19.046 ERROR 28532 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field questionService in com.littlekingkong.community.controller.IndexController required a bean of type 'com.littlekingkong.community.service.QuestionService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.littlekingkong.community.service.QuestionService' in your configuration.
+
+2022-04-17 22:12:20.662  INFO 28532 --- [restartedMain] c.l.community.CommunityApplication       : Starting CommunityApplication using Java 1.8.0_271 on LAPTOP-5OV4QMU1 with PID 28532 (D:\kingkongCommunity\target\classes started by crazy×Þ in D:\kingkongCommunity)
+2022-04-17 22:12:20.662  INFO 28532 --- [restartedMain] c.l.community.CommunityApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-04-17 22:12:20.855  INFO 28532 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-17 22:12:20.870  INFO 28532 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 JPA repository interfaces.
+2022-04-17 22:12:21.048  INFO 28532 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8777 (http)
+2022-04-17 22:12:21.048  INFO 28532 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-04-17 22:12:21.048  INFO 28532 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-04-17 22:12:21.048  INFO 28532 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-17 22:12:21.048  INFO 28532 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-04-17 22:12:21.048  INFO 28532 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-17 22:12:21.048  INFO 28532 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-17 22:12:21.064  INFO 28532 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-04-17 22:12:21.064  INFO 28532 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 402 ms
+2022-04-17 22:12:21.111  INFO 28532 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2022-04-17 22:12:21.126  INFO 28532 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2022-04-17 22:12:21.126  INFO 28532 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.3 by Redgate
+2022-04-17 22:12:21.126  INFO 28532 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/kingForum (MySQL 8.0)
+2022-04-17 22:12:21.158  INFO 28532 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 13 migrations (execution time 00:00.010s)
+2022-04-17 22:12:21.158  INFO 28532 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `kingforum`: 14
+2022-04-17 22:12:21.158  INFO 28532 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `kingforum` is up to date. No migration necessary.
+2022-04-17 22:12:21.173  INFO 28532 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-17 22:12:21.173  INFO 28532 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-17 22:12:21.189  INFO 28532 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-17 22:12:21.189  INFO 28532 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:12:21.374  INFO 28532 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-17 22:12:21.452  INFO 28532 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-17 22:12:21.468  INFO 28532 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8777 (http) with context path ''
+2022-04-17 22:12:21.468  INFO 28532 --- [restartedMain] c.l.community.CommunityApplication       : Started CommunityApplication in 0.85 seconds (JVM running for 192.802)
+2022-04-17 22:12:21.468  INFO 28532 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule start Sun Apr 17 22:12:21 CST 2022
+2022-04-17 22:12:21.468  INFO 28532 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-04-17 22:12:21.483  INFO 28532 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule stop Sun Apr 17 22:12:21 CST 2022
+2022-04-17 22:13:34.487  INFO 28532 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:13:34.487  INFO 28532 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2022-04-17 22:13:34.502  INFO 28532 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2022-04-17 22:14:29.062  INFO 44408 --- [restartedMain] c.l.community.CommunityApplication       : Starting CommunityApplication using Java 1.8.0_271 on LAPTOP-5OV4QMU1 with PID 44408 (D:\kingkongCommunity\target\classes started by crazy×Þ in D:\kingkongCommunity)
+2022-04-17 22:14:29.062  INFO 44408 --- [restartedMain] c.l.community.CommunityApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-04-17 22:14:29.109  INFO 44408 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-17 22:14:29.109  INFO 44408 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-17 22:14:29.745  INFO 44408 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-17 22:14:29.776  INFO 44408 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
+2022-04-17 22:14:30.342  INFO 44408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8777 (http)
+2022-04-17 22:14:30.342  INFO 44408 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-04-17 22:14:30.342  INFO 44408 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-04-17 22:14:30.342  INFO 44408 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-17 22:14:30.357  INFO 44408 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-04-17 22:14:30.357  INFO 44408 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-17 22:14:30.357  INFO 44408 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-17 22:14:30.474  INFO 44408 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-17 22:14:30.474  INFO 44408 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1365 ms
+2022-04-17 22:14:30.601  INFO 44408 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-04-17 22:14:31.434  INFO 44408 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-04-17 22:14:31.481  INFO 44408 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.3 by Redgate
+2022-04-17 22:14:31.481  INFO 44408 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/kingForum (MySQL 8.0)
+2022-04-17 22:14:31.547  INFO 44408 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 13 migrations (execution time 00:00.025s)
+2022-04-17 22:14:31.556  INFO 44408 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `kingforum`: 14
+2022-04-17 22:14:31.556  INFO 44408 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `kingforum` is up to date. No migration necessary.
+2022-04-17 22:14:31.666  INFO 44408 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-17 22:14:31.718  INFO 44408 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-04-17 22:14:31.852  INFO 44408 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-17 22:14:31.961  INFO 44408 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-17 22:14:32.103  INFO 44408 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-17 22:14:32.119  INFO 44408 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:14:32.666  INFO 44408 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-17 22:14:32.947  INFO 44408 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-17 22:14:32.990  INFO 44408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8777 (http) with context path ''
+2022-04-17 22:14:32.993  INFO 44408 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule start Sun Apr 17 22:14:32 CST 2022
+2022-04-17 22:14:32.993  INFO 44408 --- [restartedMain] c.l.community.CommunityApplication       : Started CommunityApplication in 4.42 seconds (JVM running for 6.257)
+2022-04-17 22:14:33.025  INFO 44408 --- [scheduling-1] c.l.community.schedule.HotTagTasks       : hotTagSchedule stop Sun Apr 17 22:14:33 CST 2022
+2022-04-17 22:14:40.823  INFO 44408 --- [http-nio-8777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-17 22:14:40.823  INFO 44408 --- [http-nio-8777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-17 22:14:40.826  INFO 44408 --- [http-nio-8777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-04-17 22:15:07.928  INFO 44408 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 22:15:07.928  INFO 44408 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-04-17 22:15:07.944  INFO 44408 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

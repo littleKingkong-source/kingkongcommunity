@@ -39,4 +39,6 @@ public interface QuestionService {
     List<QuestionDTO> selectRelated(QuestionDTO questionDTO);
 
     PaginationDTO listZeroCommentQuestion(@Param("page") Integer page, @Param("size") Integer size);
+
+    PaginationDTO listNewQuestion(String search,String tag, String sort, Integer page, Integer size);
 }
