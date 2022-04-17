@@ -3,6 +3,7 @@ package com.littlekingkong.community.controller;
 import com.littlekingkong.community.dto.CommentQuestionDTO;
 import com.littlekingkong.community.dto.QuestionDTO;
 import com.littlekingkong.community.enums.CommentTypeEnum;
+import com.littlekingkong.community.model.User;
 import com.littlekingkong.community.service.CommentService;
 import com.littlekingkong.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,10 @@ public class QuestionController {
     public String question(@PathVariable(name = "id") Long id,
                            Model model,HttpServletRequest request) {
         // 增加阅读数
-        questionService.intQuestionView(id);
+        Object user = request.getSession().getAttribute("user");
+        System.out.println(user);
+        //questionService.intQuestionView(id);
+        questionService.intQuesView(id,((User)user).getId());
 
         // 查询问题展示
         QuestionDTO questionDTO = questionService.getById(id);

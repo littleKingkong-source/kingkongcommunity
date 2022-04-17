@@ -42,4 +42,7 @@ public interface QuestionMapper {
     Integer countByNewSearch(QuestionQueryDTO questionQueryDTO);
 
     List<Question> selectByTypeSearch(QuestionQueryDTO questionQueryDTO);
+
+
+    Question selectById(Long id);
 }

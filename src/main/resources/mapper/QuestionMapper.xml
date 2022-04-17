@@ -152,6 +152,11 @@
         </if>
         limit #{page},#{size}
     </select>
+    <select id="selectById" resultType="com.littlekingkong.community.model.Question">
+        select *
+        from question
+        where id=#{id}
+    </select>
 
 
 </mapper>

@@ -358,4 +358,18 @@ public class QuestionServiceImpl implements QuestionService {
 
         return paginationDTO;
     }
+
+
+    // 增加浏览数
+    @Override
+    public void intQuesView(Long id, Long id1) {
+        Question tmp = questionMapper.selectById(id);
+        System.out.println("createId="+ tmp.getCreator()+"user=" + id1);
+        if (tmp.getCreator() != id1) {
+            Question question = new Question();
+            question.setId(id);
+            question.setView_count(1);
+            questionMapper.inView(question);
+        }
+    }
 }
