@@ -36,4 +36,6 @@ public interface QuestionMapper {
     List<Question> selectBySearch(QuestionQueryDTO questionQueryDTO);
 
     List<Question> selectWithRowbounds(RowBounds rowBounds);
+
+    List<Question> listZeroCommentQuestion2(Integer offset, Integer size);
 }

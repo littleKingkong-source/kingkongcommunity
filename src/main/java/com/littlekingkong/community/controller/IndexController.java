@@ -6,6 +6,7 @@ import com.littlekingkong.community.dto.PaginationDTO;
 import com.littlekingkong.community.dto.QuestionDTO;
 import com.littlekingkong.community.model.Question;
 import com.littlekingkong.community.model.User;
+import com.littlekingkong.community.service.AdService;
 import com.littlekingkong.community.service.NotificationService;
 import com.littlekingkong.community.service.QuestionService;
 import com.littlekingkong.community.service.UserService;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.jws.WebParam;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,13 +43,19 @@ public class IndexController {
     @Autowired
     private HotTagCache hotTagCache;
 
+    @Autowired
+    private AdService adService;
+
     @GetMapping("/")
     public String index(HttpServletRequest request,
                         Model model,
                         @RequestParam(name = "page", defaultValue = "1") Integer page,
-                        @RequestParam(name = "size", defaultValue = "5") Integer size,
+                        @RequestParam(name = "size", defaultValue = "10") Integer size,
                         @RequestParam(name = "search", required = false) String search,
                         @RequestParam(name = "tag"  , required = false) String tag){
+        HttpSession session = request.getSession();
+        session.setAttribute("ads",adService.list());
+
         Cookie[] cookies = request.getCookies();
         if(cookies.length != 0) {
             for (Cookie cookie : cookies) {
@@ -63,14 +71,19 @@ public class IndexController {
                 }
             }
         }
-
+        // 最新和全部问题展示
         PaginationDTO pagination = questionService.listSearch(search, tag, page, size);
+
+        // 消去0回复
+        PaginationDTO pagination2 = questionService.listZeroCommentQuestion(page,size);
+
 
         // 获取热评
         List<String> tags = hotTagCache.getHots();
         System.out.println(tags);
 
         model.addAttribute("pagination", pagination);
+        model.addAttribute("pagination2", pagination2);
         model.addAttribute("search", search);
         model.addAttribute("tag",tag);
         model.addAttribute("tags",tags);

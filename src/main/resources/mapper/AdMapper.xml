@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.littlekingkong.community.dao.AdMapper">
+
+
+    <select id="selectByStatus" resultType="com.littlekingkong.community.model.Ad">
+        select *
+        from ad
+        where status = #{status} and gmt_end &lt; #{time}
+    </select>
+    <select id="selectById" resultType="com.littlekingkong.community.model.Ad">
+        select * from ad where id=#{id}
+    </select>
+</mapper>

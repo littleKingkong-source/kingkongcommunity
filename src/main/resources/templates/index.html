@@ -27,22 +27,40 @@
 <div class="container-fluid main">
     <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-            <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> &nbsp;发现</h2>
-            <hr/>
-            <div class="media" th:each="question : ${pagination.data}">
-                <div class="media-left">
-                    <a href="#">
-                        <img class="media-object img-rounded" th:src="${question.user.avatar_url}" alt="头像丢失了">
-                    </a>
-                </div>
-                <div class="media-body">
-                    <h4 class="media-heading">
-                        <a th:href="@{'/question/'+ ${question.id}}" th:text="${question.title}"></a>
-                    </h4>
-<!--                    <span th:text="${question.description}"></span>-->
-                    <span th:text="${#strings.abbreviate(question.description,30)}"></span>
-                    <br/>
-                    <span class="text-desc text_ioc">
+            <h2><span class="glyphicon glyphicon-list hot" aria-hidden="true"></span> &nbsp;发现</h2>
+            <!--            <hr/>-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#new" aria-controls="home" role="tab" data-toggle="tab">最新</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">30天最热</a>
+                    </li>
+                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab"
+                                               data-toggle="tab">最热</a></li>
+                    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" style="color: red">消除零回复</a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <!--最新回复-->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active hot_main" id="new">
+                        <div class="media" th:each="question : ${pagination.data}">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object img-rounded" th:src="${question.user.avatar_url}"
+                                         alt="头像丢失了">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">
+                                    <a th:href="@{'/question/'+ ${question.id}}" th:text="${question.title}"></a>
+                                </h4>
+                                <!--                    <span th:text="${question.description}"></span>-->
+                                <span th:text="${#strings.abbreviate(question.description,30)}"></span>
+                                <br/>
+                                <span class="text-desc text_ioc">
 <!--                        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>-->
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-chat-right-dots" viewBox="0 0 16 16">
@@ -51,7 +69,7 @@
 </svg>
                         <span th:text="${question.comment_count}">0</span>
                         个评论 •
-                        <!--                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>-->
+                                    <!--                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>-->
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" fill="currentColor"
                              class="bi bi-eye" viewBox="0 0 16 16">
   <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
@@ -59,48 +77,205 @@
 </svg>
                         <span th:text="${question.view_count}">0</span>
                         次浏览 •
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor" class="bi bi-alarm" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor"
+                             class="bi bi-alarm" viewBox="0 0 16 16">
   <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z"/>
   <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z"/>
 </svg>
                         <span th:text="${#dates.format(question.gmt_create,'yyyy-MM-dd HH:MM')}"></span>
                     </span>
-                </div>
-            </div>
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    <li th:if="${pagination.showFirstPage}">
-                        <a th:href="@{/(page=1,search=${search},tag=${tag})}" aria-label="Previous">
-                            <span aria-hidden="true">&lt;&lt;</span>
-                        </a>
-                    </li>
-                    <li th:if="${pagination.showPrevious}">
-                        <a th:href="@{/(page=${pagination.page - 1},search=${search},tag=${tag})}" aria-label="Previous">
-                            <span aria-hidden="true">&lt;</span>
-                        </a>
-                    </li>
-                    <li th:each="page : ${pagination.pages}" th:class="${pagination.page == page}? 'active':''">
-                        <a th:href="@{/(page=${page},search=${search},tag=${tag})}" th:text="${page}"></a>
-                    </li>
+                            </div>
+                        </div>
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination page-helper">
+                                <li th:if="${pagination.showFirstPage}">
+                                    <a th:href="@{/(page=1,search=${search},tag=${tag})}" aria-label="Previous">
+                                        <span aria-hidden="true">&lt;&lt;</span>
+                                    </a>
+                                </li>
+                                <li th:if="${pagination.showPrevious}">
+                                    <a th:href="@{/(page=${pagination.page - 1},search=${search},tag=${tag})}"
+                                       aria-label="Previous">
+                                        <span aria-hidden="true">&lt;</span>
+                                    </a>
+                                </li>
+                                <li th:each="page : ${pagination.pages}"
+                                    th:class="${pagination.page == page}? 'active':''">
+                                    <a th:href="@{/(page=${page},search=${search},tag=${tag})}" th:text="${page}"></a>
+                                </li>
 
-                    <li th:if="${pagination.showNext}">
-                        <a th:href="@{/(page=${pagination.page + 1},search=${search},tag=${tag})}" aria-label="Previous">
-                            <span aria-hidden="true">&gt;</span>
-                        </a>
-                    </li>
-                    <li th:if="${pagination.showEndPage}">
-                        <a th:href="@{/(page=${pagination.totalPage},search=${search},tag=${tag})}" aria-label="Previous">
-                            <span aria-hidden="true">&gt;&gt;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+                                <li th:if="${pagination.showNext}">
+                                    <a th:href="@{/(page=${pagination.page + 1},search=${search},tag=${tag})}"
+                                       aria-label="Previous">
+                                        <span aria-hidden="true">&gt;</span>
+                                    </a>
+                                </li>
+                                <li th:if="${pagination.showEndPage}">
+                                    <a th:href="@{/(page=${pagination.totalPage},search=${search},tag=${tag})}"
+                                       aria-label="Previous">
+                                        <span aria-hidden="true">&gt;&gt;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="profile">
+                        ...
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="messages">
+                        ...
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="settings">
+                                    <div class="media" th:each="question2 : ${pagination2.data}">
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img class="media-object img-rounded" th:src="${question2.user.avatar_url}" alt="头像丢失了">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">
+                                                <a th:href="@{'/question/'+ ${question2.id}}" th:text="${question2.title}"></a>
+                                            </h4>
+                        <!--                    <span th:text="${question.description}"></span>-->
+                                            <span th:text="${#strings.abbreviate(question2.description,30)}"></span>
+                                            <br/>
+                                            <span class="text-desc text_ioc">
+                        <!--                        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>-->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                     class="bi bi-chat-right-dots" viewBox="0 0 16 16">
+                          <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
+                          <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                        </svg>
+                                                <span th:text="${question2.comment_count}">0</span>
+                                                个评论 •
+                                                <!--                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>-->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" fill="currentColor"
+                                                     class="bi bi-eye" viewBox="0 0 16 16">
+                          <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                          <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                        </svg>
+                                                <span th:text="${question2.view_count}">0</span>
+                                                次浏览 •
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor" class="bi bi-alarm" viewBox="0 0 16 16">
+                          <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z"/>
+                          <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z"/>
+                        </svg>
+                                                <span th:text="${#dates.format(question2.gmt_create,'yyyy-MM-dd HH:MM')}"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination page-helper">
+                                            <li th:if="${pagination2.showFirstPage}">
+                                                <a th:href="@{/(page=1)}" aria-label="Previous">
+                                                    <span aria-hidden="true">&lt;&lt;</span>
+                                                </a>
+                                            </li>
+                                            <li th:if="${pagination2.showPrevious}">
+                                                <a th:href="@{/(page=${pagination2.page - 1})}" aria-label="Previous">
+                                                    <span aria-hidden="true">&lt;</span>
+                                                </a>
+                                            </li>
+                                            <li th:each="page : ${pagination2.pages}" th:class="${pagination.page == page}? 'active':''">
+                                                <a th:href="@{/(page=${page})}" th:text="${page}"></a>
+                                            </li>
+
+                                            <li th:if="${pagination2.showNext}">
+                                                <a th:href="@{/(page=${pagination2.page + 1})}" aria-label="Previous">
+                                                    <span aria-hidden="true">&gt;</span>
+                                                </a>
+                                            </li>
+                                            <li th:if="${pagination2.showEndPage}">
+                                                <a th:href="@{/(page=${pagination2.totalPage})}" aria-label="Previous">
+                                                    <span aria-hidden="true">&gt;&gt;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!--            <div class="media" th:each="question : ${pagination.data}">-->
+            <!--                <div class="media-left">-->
+            <!--                    <a href="#">-->
+            <!--                        <img class="media-object img-rounded" th:src="${question.user.avatar_url}" alt="头像丢失了">-->
+            <!--                    </a>-->
+            <!--                </div>-->
+            <!--                <div class="media-body">-->
+            <!--                    <h4 class="media-heading">-->
+            <!--                        <a th:href="@{'/question/'+ ${question.id}}" th:text="${question.title}"></a>-->
+            <!--                    </h4>-->
+            <!--&lt;!&ndash;                    <span th:text="${question.description}"></span>&ndash;&gt;-->
+            <!--                    <span th:text="${#strings.abbreviate(question.description,30)}"></span>-->
+            <!--                    <br/>-->
+            <!--                    <span class="text-desc text_ioc">-->
+            <!--&lt;!&ndash;                        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&ndash;&gt;-->
+            <!--                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"-->
+            <!--                             class="bi bi-chat-right-dots" viewBox="0 0 16 16">-->
+            <!--  <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>-->
+            <!--  <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>-->
+            <!--</svg>-->
+            <!--                        <span th:text="${question.comment_count}">0</span>-->
+            <!--                        个评论 •-->
+            <!--                        &lt;!&ndash;                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&ndash;&gt;-->
+            <!--                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" fill="currentColor"-->
+            <!--                             class="bi bi-eye" viewBox="0 0 16 16">-->
+            <!--  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>-->
+            <!--  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>-->
+            <!--</svg>-->
+            <!--                        <span th:text="${question.view_count}">0</span>-->
+            <!--                        次浏览 •-->
+            <!--                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor" class="bi bi-alarm" viewBox="0 0 16 16">-->
+            <!--  <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z"/>-->
+            <!--  <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z"/>-->
+            <!--</svg>-->
+            <!--                        <span th:text="${#dates.format(question.gmt_create,'yyyy-MM-dd HH:MM')}"></span>-->
+            <!--                    </span>-->
+            <!--                </div>-->
+            <!--            </div>-->
+
+
+            <!--            <nav aria-label="Page navigation">-->
+            <!--                <ul class="pagination page-helper">-->
+            <!--                    <li th:if="${pagination.showFirstPage}">-->
+            <!--                        <a th:href="@{/(page=1,search=${search},tag=${tag})}" aria-label="Previous">-->
+            <!--                            <span aria-hidden="true">&lt;&lt;</span>-->
+            <!--                        </a>-->
+            <!--                    </li>-->
+            <!--                    <li th:if="${pagination.showPrevious}">-->
+            <!--                        <a th:href="@{/(page=${pagination.page - 1},search=${search},tag=${tag})}" aria-label="Previous">-->
+            <!--                            <span aria-hidden="true">&lt;</span>-->
+            <!--                        </a>-->
+            <!--                    </li>-->
+            <!--                    <li th:each="page : ${pagination.pages}" th:class="${pagination.page == page}? 'active':''">-->
+            <!--                        <a th:href="@{/(page=${page},search=${search},tag=${tag})}" th:text="${page}"></a>-->
+            <!--                    </li>-->
+
+            <!--                    <li th:if="${pagination.showNext}">-->
+            <!--                        <a th:href="@{/(page=${pagination.page + 1},search=${search},tag=${tag})}" aria-label="Previous">-->
+            <!--                            <span aria-hidden="true">&gt;</span>-->
+            <!--                        </a>-->
+            <!--                    </li>-->
+            <!--                    <li th:if="${pagination.showEndPage}">-->
+            <!--                        <a th:href="@{/(page=${pagination.totalPage},search=${search},tag=${tag})}" aria-label="Previous">-->
+            <!--                            <span aria-hidden="true">&gt;&gt;</span>-->
+            <!--                        </a>-->
+            <!--                    </li>-->
+            <!--                </ul>-->
+            <!--            </nav>-->
         </div>
+
+
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <div class="col-lg-12 col-md-12 col-xs-12">
-                <h4>站长QQ</h4>
-                <img alt="有问题请联系我" src="/images/QQ.jpg" class="img-thumbnail question-QQ">
-                <a href="http://www.littlekingkong.com">记忆个人博客</a>
+                <h4>活动推荐</h4>
+                <a href="https://www.aliyun.com/" target="_blank"><img alt="阿里云" src="/images/aliyunAd.png" class="img-thumbnail ad_pos"></a>
+                <a href="https://aistudio.baidu.com/aistudio/index" target="_blank"><img alt="百度飞浆" src="/images/fei.jpg" class="img-thumbnail ad_pos"></a>
             </div>
             <hr class="col-lg-12 col-md-12 col-xs-12"/>
             <div class="col-lg-12 col-md-12 col-xs-12">

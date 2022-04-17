@@ -1,0 +1,1 @@
+alter table user add type varchar(20) default 'github' null;

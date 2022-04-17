@@ -1,7 +1,7 @@
 package com.littlekingkong.community.controller;
 
 import com.littlekingkong.community.dto.AccessTokenDTO;
-import com.littlekingkong.community.dto.GiteeUser;
+import com.littlekingkong.community.provider.dto.GiteeUser;
 import com.littlekingkong.community.model.User;
 import com.littlekingkong.community.provider.GiteeProvider;
 import com.littlekingkong.community.service.UserService;
@@ -24,42 +24,42 @@ import java.util.UUID;
 @Controller
 public class GiteeController {
 
-    @Autowired
-    private GiteeProvider giteeProvider;
-
-    @Autowired
-    private UserService userService;
-
-    @GetMapping("/callback/gitee")
-    public String callbackGitee(@RequestParam(name = "code") String code,
-                                @RequestParam(name = "state") String state,
-                                HttpServletResponse response,HttpServletRequest request) {
-        AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
-        accessTokenDTO.setClient_id("297f2d6977941e7e464986e04fe3ea17d044edddef4625602de808f34009189d");
-        accessTokenDTO.setClient_secret("e734d4fae7956128cb49ab5c81194a2b38960ea3f7020dfb8a25b8bcf8592b63");
-        accessTokenDTO.setCode(code);
-        accessTokenDTO.setState(state);
-        accessTokenDTO.setRedirect_uri("http://localhost:8777/callback/gitee");
-        String accessToken = giteeProvider.getAccessToken(accessTokenDTO);
-        GiteeUser giteeUser = giteeProvider.getGiteeUser(accessToken);
-        System.out.println(giteeUser.toString());
-        if (giteeUser != null) {
-            User user = new User();
-            String token = UUID.randomUUID().toString();
-            user.setAccount_id(String.valueOf(giteeUser.getId()));
-            user.setName(giteeUser.getName());
-            user.setToken(token);
-            user.setAvatar_url(giteeUser.getAvatar_url());
-            userService.creatOrUpdate(user);
-            //自动写入Cookie
-            Cookie cookie = new Cookie("token",token);
-            response.addCookie(cookie);
-            return "redirect:/";
-        } else {
-            //登陆失败，重新登录
-            return "redirect:/";
-        }
-
-
-    }
+//    @Autowired
+//    private GiteeProvider giteeProvider;
+//
+//    @Autowired
+//    private UserService userService;
+//
+//    @GetMapping("/callback/gitee")
+//    public String callbackGitee(@RequestParam(name = "code") String code,
+//                                @RequestParam(name = "state") String state,
+//                                HttpServletResponse response,HttpServletRequest request) {
+//        AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
+//        accessTokenDTO.setClient_id("297f2d6977941e7e464986e04fe3ea17d044edddef4625602de808f34009189d");
+//        accessTokenDTO.setClient_secret("e734d4fae7956128cb49ab5c81194a2b38960ea3f7020dfb8a25b8bcf8592b63");
+//        accessTokenDTO.setCode(code);
+//        accessTokenDTO.setState(state);
+//        accessTokenDTO.setRedirect_uri("http://localhost:8777/callback/gitee");
+//        String accessToken = giteeProvider.getAccessToken(accessTokenDTO);
+//        GiteeUser giteeUser = giteeProvider.getUser(accessToken);
+//        System.out.println(giteeUser.toString());
+//        if (giteeUser != null) {
+//            User user = new User();
+//            String token = UUID.randomUUID().toString();
+//            user.setAccount_id(String.valueOf(giteeUser.getId()));
+//            user.setName(giteeUser.getName());
+//            user.setToken(token);
+//            user.setAvatar_url(giteeUser.getAvatar_url());
+//            userService.creatOrUpdate(user);
+//            //自动写入Cookie
+//            Cookie cookie = new Cookie("token",token);
+//            response.addCookie(cookie);
+//            return "redirect:/";
+//        } else {
+//            //登陆失败，重新登录
+//            return "redirect:/";
+//        }
+//
+//
+//    }
 }

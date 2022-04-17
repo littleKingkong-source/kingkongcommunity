@@ -37,4 +37,6 @@ public interface QuestionService {
     void intQuestionView(@Param("id") Long id);
 
     List<QuestionDTO> selectRelated(QuestionDTO questionDTO);
+
+    PaginationDTO listZeroCommentQuestion(@Param("page") Integer page, @Param("size") Integer size);
 }

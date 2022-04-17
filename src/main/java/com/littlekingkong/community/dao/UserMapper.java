@@ -23,4 +23,6 @@ public interface UserMapper {
 
     // 用户表单
     List<User> selectByList(List<Long> userIds);
+
+    User ExitUser(String account_id, String type);
 }

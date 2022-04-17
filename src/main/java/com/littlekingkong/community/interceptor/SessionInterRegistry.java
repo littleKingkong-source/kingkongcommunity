@@ -1,17 +1,20 @@
 package com.littlekingkong.community.interceptor;
 
-import com.littlekingkong.community.dao.UserMapper;
 import com.littlekingkong.community.model.User;
+import com.littlekingkong.community.service.AdService;
 import com.littlekingkong.community.service.NotificationService;
 import com.littlekingkong.community.service.UserService;
+import com.littlekingkong.community.service.impl.AdServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * *
@@ -28,9 +31,14 @@ public class SessionInterRegistry implements HandlerInterceptor {
     @Autowired
     private NotificationService notificationService;
 
+    @Autowired
+    private AdService adService;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler
                             ) throws Exception {
+
+
         Cookie[] cookies = request.getCookies();
         if(cookies.length != 0) {
             for (Cookie cookie : cookies) {

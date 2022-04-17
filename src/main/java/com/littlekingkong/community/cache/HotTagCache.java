@@ -44,6 +44,5 @@ public class HotTagCache {
             poll = queue.poll();
         }
         hots = sortedTags;
-        System.out.println(hots);
     }
 }

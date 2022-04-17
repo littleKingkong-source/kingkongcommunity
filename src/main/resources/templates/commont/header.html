@@ -13,6 +13,9 @@
 
 </head>
 <body>
+<div th:fragment="top">
+
+
 <nav class="navbar navbar-default" th:fragment="top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -35,15 +38,27 @@
                 </div>
                 <button type="submit" class="btn btn-default">搜索</button>
             </form>
+
+            <ul class="nav navbar-nav">
+                <script>
+                    function clickNav(label) {
+                        gtag('event','click',{
+                          'event_category':'LINK',
+                          'event_label':label,
+                          'transport_type':'NAV'
+                        })
+                    }
+                </script>
+                <li th:each="ad : ${session.ads}">
+                    <a th:href="${ad.url}" th:text="${ad.title}" th:onclick="clickNav([[${ad.title}]])" target="_blank">友情链接</a>
+                </li>
+            </ul>
+
+
+
             <ul class="nav navbar-nav navbar-right">
                 <li th:if="session.user != null">
                     <a href="/publish">
-<!--                        <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>&nbsp;&nbsp;-->
-<!--                        <span>-->
-<!--                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bug" viewBox="0 0 16 16">-->
-<!--                            <path d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6a3.989 3.989 0 0 0-1.334-2.982A3.983 3.983 0 0 0 8 2a3.983 3.983 0 0 0-2.667 1.018A3.989 3.989 0 0 0 4 6h8z"/>-->
-<!--                        </svg>-->
-<!--                        </span>-->
                         <span>提问</span>
                     </a>
                 </li>
@@ -64,31 +79,55 @@
 <!--                <li th:if="${session.user == null}"><a href="https://github.com/login/oauth/authorize?client_id=Iv1.b8a646b73219c4e2&redirect_uri=http://localhost:8777/callback&state=1">登录</a></li>-->
 
                 <li class="dropdown" th:if="${session.user == null}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        登录<span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="https://github.com/login/oauth/authorize?client_id=Iv1.b8a646b73219c4e2&redirect_uri=http://localhost:8777/callback&state=1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                        </svg>&nbsp;
-                                GitHub
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://gitee.com/oauth/authorize?client_id=297f2d6977941e7e464986e04fe3ea17d044edddef4625602de808f34009189d&redirect_uri=http://localhost:8777/callback/gitee&response_type=code&state=1">
-                                <svg  width="16" height="16" xmlns="http://www.w3.org/2000/svg" name="zi_tmGitee" viewBox="0 0 2000 2000"><path d="M898 1992q183 0 344-69.5t283-191.5q122-122 191.5-283t69.5-344q0-183-69.5-344T1525 477q-122-122-283-191.5T898 216q-184 0-345 69.5T270 477Q148 599 78.5 760T9 1104q0 183 69.5 344T270 1731q122 122 283 191.5t345 69.5zm199-400H448q-17 0-30.5-14t-13.5-30V932q0-89 43.5-163.5T565 649q74-45 166-45h616q17 0 30.5 14t13.5 31v111q0 16-13.5 30t-30.5 14H731q-54 0-93.5 39.5T598 937v422q0 17 14 30.5t30 13.5h416q55 0 94.5-39.5t39.5-93.5v-22q0-17-14-30.5t-31-13.5H842q-17 0-30.5-14t-13.5-31v-111q0-16 13.5-30t30.5-14h505q17 0 30.5 14t13.5 30v250q0 121-86.5 207.5T1097 1592z"/></svg>
-                                &nbsp;Gitee
-                            </a>
-                        </li>
-<!--                        <li><a href="#">Something else here</a></li>-->
-                    </ul>
+<!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
+<!--                        登录<span class="caret"></span>-->
+<!--                    </a>-->
+<!--                    <ul class="dropdown-menu">-->
+<!--                        <li>-->
+<!--                            <a href="https://github.com/login/oauth/authorize?client_id=Iv1.b8a646b73219c4e2&redirect_uri=http://localhost:8777/callback/github&state=1">-->
+<!--                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">-->
+<!--                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>-->
+<!--                        </svg>&nbsp;-->
+<!--                                GitHub-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="https://gitee.com/oauth/authorize?client_id=297f2d6977941e7e464986e04fe3ea17d044edddef4625602de808f34009189d&redirect_uri=http://localhost:8777/callback/gitee&response_type=code&state=1">-->
+<!--                                <svg  width="16" height="16" xmlns="http://www.w3.org/2000/svg" name="zi_tmGitee" viewBox="0 0 2000 2000"><path d="M898 1992q183 0 344-69.5t283-191.5q122-122 191.5-283t69.5-344q0-183-69.5-344T1525 477q-122-122-283-191.5T898 216q-184 0-345 69.5T270 477Q148 599 78.5 760T9 1104q0 183 69.5 344T270 1731q122 122 283 191.5t345 69.5zm199-400H448q-17 0-30.5-14t-13.5-30V932q0-89 43.5-163.5T565 649q74-45 166-45h616q17 0 30.5 14t13.5 31v111q0 16-13.5 30t-30.5 14H731q-54 0-93.5 39.5T598 937v422q0 17 14 30.5t30 13.5h416q55 0 94.5-39.5t39.5-93.5v-22q0-17-14-30.5t-31-13.5H842q-17 0-30.5-14t-13.5-31v-111q0-16 13.5-30t30.5-14h505q17 0 30.5 14t13.5 30v250q0 121-86.5 207.5T1097 1592z"/></svg>-->
+<!--                                &nbsp;Gitee-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+                    <a href="#" data-toggle="modal" data-target="#myModal">登录</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document" style="width: 400px;margin-top: 200px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">登录</h4>
+                </div>
+                <div class="modal-body" style="text-align: center">
+                    <a href="https://github.com/login/oauth/authorize?client_id=Iv1.b8a646b73219c4e2&redirect_uri=http://localhost:8777/callback/github&state=1">
+                        <img src="/images/github.png">
+                    </a>
+
+                    <a href="https://gitee.com/oauth/authorize?client_id=297f2d6977941e7e464986e04fe3ea17d044edddef4625602de808f34009189d&redirect_uri=http://localhost:8777/callback/gitee&response_type=code&state=1">
+                        <img src="/images/gitee.png">
+                    </a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

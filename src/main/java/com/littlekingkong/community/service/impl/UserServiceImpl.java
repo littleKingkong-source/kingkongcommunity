@@ -35,7 +35,8 @@ public class UserServiceImpl implements UserService {
     //判断数据库是否存在该用户，存在则更新token
     @Override
     public void creatOrUpdate(User user) {
-        User dbUser = userMapper.findByAccountId(user.getAccount_id());
+        //User dbUser = userMapper.findByAccountId(user.getAccount_id());
+        User dbUser = userMapper.ExitUser(user.getAccount_id(),user.getType());
         if (dbUser == null) {
             //用户不存在则，视为注册
             user.setGmt_create(System.currentTimeMillis());
@@ -47,6 +48,7 @@ public class UserServiceImpl implements UserService {
             dbUser.setBio(user.getBio());
             dbUser.setName(user.getName());
             dbUser.setToken(user.getToken());
+            dbUser.setType(user.getType());
             //用户存在，更新
             userMapper.update(dbUser);
         }

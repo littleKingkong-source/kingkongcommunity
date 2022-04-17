@@ -1,4 +1,4 @@
-package com.littlekingkong.community.dto;
+package com.littlekingkong.community.provider.dto;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
@@ -7,15 +7,13 @@ import org.springframework.stereotype.Component;
  * *
  *
  * @author 邹玉沛
- * @date 2022/3/11 23:58*@since 1.0.0
+ * @date 2022/3/25 15:19*@since 1.0.0
  */
-@Component
 @Data
-public class GitHubUser {
+@Component
+public class GiteeUser {
     private String name;
     private Long id;
-    //private Integer id;
     private String bio;
     private String avatar_url;
-
 }
