@@ -46,7 +46,7 @@ public class IndexController {
     @Autowired
     private AdService adService;
 
-    @GetMapping("/")
+    @GetMapping(value = "/")
     public String index(HttpServletRequest request,
                         Model model,
                         @RequestParam(name = "page", defaultValue = "1") Integer page,
@@ -54,15 +54,18 @@ public class IndexController {
                         @RequestParam(name = "search", required = false) String search,
                         @RequestParam(name = "tag"  , required = false) String tag,
                         @RequestParam(name = "sort", required = false) String sort){
+        System.out.println("hhhhhhhhhhhhhhhhhhhhhh");
         HttpSession session = request.getSession();
         session.setAttribute("ads",adService.list());
-
+        System.out.println("-------------------------------------------------");
+        System.out.println("-------------------------------------------------");
         Cookie[] cookies = request.getCookies();
         if(cookies.length != 0) {
             for (Cookie cookie : cookies) {
                 if(cookie.getName().equals("token")) {
                     String token = cookie.getValue();
                     User user = userService.findToken(token);
+                    System.out.println("uuuuuuuuuuuuuuuuuuuuuu");
                     if(user != null) {
                         request.getSession().setAttribute("user", user);
                         Long unReadCount = notificationService.unReadCount(user.getId());
@@ -77,15 +80,12 @@ public class IndexController {
 
         // 消去0回复
         //PaginationDTO pagination2 = questionService.listZeroCommentQuestion(page,size);
-
+        System.out.println("22222222222222222222222222222222222222222");
 
         PaginationDTO pagination =  questionService.listNewQuestion(search, tag, sort,page,size);
-
         // 获取热评
         List<String> tags = hotTagCache.getHots();
-
         model.addAttribute("pagination", pagination);
-        //model.addAttribute("pagination2", pagination2);
         model.addAttribute("search", search);
         model.addAttribute("tag",tag);
         model.addAttribute("tags",tags);

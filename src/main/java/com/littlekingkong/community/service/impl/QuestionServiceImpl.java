@@ -316,7 +316,7 @@ public class QuestionServiceImpl implements QuestionService {
         for (SortEnum sortEnum : SortEnum.values()) {
             if (sortEnum.name().toLowerCase().equals(sort)) {
                 questionQueryDTO.setSort(sort);
-                System.out.println(sort);
+                System.out.println("----------------------" + sort);
                 if (sortEnum == SortEnum.HOT7) {
                     questionQueryDTO.setTime(System.currentTimeMillis() - 1000L * 60 * 60 * 24 * 7);
                 }
@@ -326,9 +326,10 @@ public class QuestionServiceImpl implements QuestionService {
                 break;
             }
         }
-        System.out.println("---------------------" + questionQueryDTO + "------------------------");
+        System.out.println("---------------------到这里了" + questionQueryDTO + "------------------------");
+        System.out.println("888888888888888888888888888888");
         Integer count = questionMapper.countByNewSearch(questionQueryDTO);
-
+        System.out.println("count======" + count);
         paginationDTO.setPagination(count, page, size);
 
         if (page < 1) {
@@ -345,6 +346,7 @@ public class QuestionServiceImpl implements QuestionService {
         questionQueryDTO.setPage(offset);
 
         List<Question> questions = questionMapper.selectByTypeSearch(questionQueryDTO);
+        System.out.println("question===========" + questions);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
         for (Question question : questions) {
@@ -355,7 +357,7 @@ public class QuestionServiceImpl implements QuestionService {
             questionDTOList.add(questionDTO);
         }
         paginationDTO.setData(questionDTOList);
-
+        System.out.println("测试paginationDTO" + paginationDTO);
         return paginationDTO;
     }
 

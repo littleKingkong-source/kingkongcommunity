@@ -32,7 +32,8 @@ public class PublishController {
     @GetMapping("/publish")
     public String publish(Model model) {
         model.addAttribute("SelectByTags", TagCache.get());
-        return "/editor/publish";
+        //return "/editor/publish";
+        return "editor/publish";
     }
 
     @PostMapping("/publish")
@@ -51,28 +52,33 @@ public class PublishController {
         model.addAttribute("SelectByTags", TagCache.get());
         if (title == null || title == "") {
             model.addAttribute("error", "标题不能为空");
-            return "/editor/publish";
+//            return "/editor/publish";
+            return "editor/publish";
         }
         if (description == null || description == "") {
             model.addAttribute("error", "问题不能为空");
-            return "/editor/publish";
+//            return "/editor/publish";
+            return "editor/publish";
         }
         if (tag == null || tag == "") {
             model.addAttribute("error", "标签不能为空");
-            return "/editor/publish";
+//            return "/editor/publish";
+            return "editor/publish";
         }
 
         // 查询是否含有非法标签
         String invalid = TagCache.filterInvalid(tag);
         if (StringUtils.isNoneBlank(invalid)) {
             model.addAttribute("error", "输入非法标签" + invalid);
-            return "/editor/publish";
+            //return "/editor/publish";
+            return "editor/publish";
         }
 
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
             model.addAttribute("error", "用户未登录");
-            return "/editor/publish";
+            //return "/editor/publish";
+            return "editor/publish";
         }
 
         Question question = new Question();

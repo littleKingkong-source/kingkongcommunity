@@ -105,8 +105,9 @@
         limit #{offset}, #{size}
     </select>
 
-    <select id="countByNewSearch" resultType="java.lang.Integer">
-        select count(*) from QUESTION
+
+    <select id="countByNewSearch" parameterType="com.littlekingkong.community.dto.QuestionQueryDTO"  resultType="java.lang.Integer">
+        select count(*) from question
         <where>
             <if test="search != null and search != ''">
                 and title regexp #{search}
@@ -115,15 +116,17 @@
                 and tag regexp #{tag}
             </if>
             <if test="sort != null and sort != '' and sort == 'no'">
-                and comment_count=0
+                and comment_count = 0
             </if>
             <if test="time != null and time != ''">
                 and gmt_create > #{time}
             </if>
         </where>
     </select>
+
+
     <select id="selectByTypeSearch" resultType="com.littlekingkong.community.model.Question">
-        select * from QUESTION
+        select * from question
         <where>
             <if test="search != null and search != ''">
                 and title regexp #{search}

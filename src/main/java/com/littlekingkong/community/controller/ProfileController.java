@@ -58,7 +58,8 @@ public class ProfileController {
             model.addAttribute("pagination",paginationDTO);
             model.addAttribute("sectionName","最新回复");
         }
-        return "/editor/profile";
+        //return "/editor/profile";
+        return "editor/profile";
     }
 
 

@@ -17,14 +17,13 @@
 
 <body>
 <!--引入头部导航栏-->
-<div th:insert="/commont/header :: top"></div>
-
+<div th:insert="commont/header :: top"></div>
 
 <div class="jumbotron">
     <h1>出错啦! ! !</h1>
     <p th:text="${message}">服务太热啦，要不然稍后再来试试~</p>
     <p><a class="btn btn-primary btn-lg" href="/" role="button">回到主页</a></p>
 </div>
-<div th:insert="~{/commont/footer :: footer}"></div>
+<div th:insert="~{commont/footer :: footer}"></div>
 </body>
 </html>

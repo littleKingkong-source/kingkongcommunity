@@ -13,6 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>community</name>
     <description>community</description>
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -32,12 +33,9 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+
         </dependency>
 
         <!--okhttp3-->
@@ -45,12 +43,6 @@
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
             <version>4.9.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.57</version>
         </dependency>
 
 
@@ -75,11 +67,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
@@ -106,12 +94,7 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-<!--        热部署-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <version>2.6.2</version>
-        </dependency>
+
         <!-- 网络请求 -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -133,7 +116,7 @@
             <version>3.12.0</version>
         </dependency>
 
-<!--        sdk上传图片-->
+        <!--        sdk上传图片-->
         <dependency>
             <groupId>com.aliyun.oss</groupId>
             <artifactId>aliyun-sdk-oss</artifactId>
@@ -146,15 +129,26 @@
         </dependency>
 
 
-
     </dependencies>
 
     <build>
+        <finalName>KingForum</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.6.4</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.shared</groupId>
+                        <artifactId>maven-filtering</artifactId>
+                        <version>1.3</version>
+                    </dependency>
+                </dependencies>
             </plugin>
 
             <plugin>
@@ -169,6 +163,7 @@
                 </configuration>
             </plugin>
         </plugins>
+
     </build>
 
 </project>

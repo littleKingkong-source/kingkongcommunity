@@ -14,9 +14,7 @@
 </head>
 <body>
 <div th:fragment="top">
-
-
-<nav class="navbar navbar-default" th:fragment="top">
+<nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -40,17 +38,17 @@
             </form>
 
             <ul class="nav navbar-nav">
-                <script>
-                    function clickNav(label) {
-                        gtag('event','click',{
-                          'event_category':'LINK',
-                          'event_label':label,
-                          'transport_type':'NAV'
-                        })
-                    }
-                </script>
+<!--                <script>-->
+<!--                    function clickNav(label) {-->
+<!--                        gtag('event','click',{-->
+<!--                          'event_category':'LINK',-->
+<!--                          'event_label':label,-->
+<!--                          'transport_type':'NAV'-->
+<!--                        })-->
+<!--                    }-->
+<!--                </script>-->
                 <li th:each="ad : ${session.ads}">
-                    <a th:href="${ad.url}" th:text="${ad.title}" th:onclick="clickNav([[${ad.title}]])" target="_blank">友情链接</a>
+                    <a th:href="${ad.url}" th:text="${ad.title}"  target="_blank">友情链接</a>
                 </li>
             </ul>
 
@@ -114,11 +112,18 @@
                     <h4 class="modal-title" id="myModalLabel">登录</h4>
                 </div>
                 <div class="modal-body" style="text-align: center">
-                    <a href="https://github.com/login/oauth/authorize?client_id=Iv1.b8a646b73219c4e2&redirect_uri=http://localhost:8777/callback/github&state=1">
+<!--                    <a href="https://github.com/login/oauth/authorize?client_id=Iv1.b8a646b73219c4e2&redirect_uri=http://localhost:8666/callback/github&state=1">-->
+<!--                        <img src="/images/github.png">-->
+<!--                    </a>-->
+                    <a href="https://github.com/login/oauth/authorize?client_id=Iv1.b8a646b73219c4e2&redirect_uri=http://120.77.94.129:8666/callback/github&state=1">
                         <img src="/images/github.png">
                     </a>
 
-                    <a href="https://gitee.com/oauth/authorize?client_id=297f2d6977941e7e464986e04fe3ea17d044edddef4625602de808f34009189d&redirect_uri=http://localhost:8777/callback/gitee&response_type=code&state=1">
+<!--                    <a href="https://gitee.com/oauth/authorize?client_id=297f2d6977941e7e464986e04fe3ea17d044edddef4625602de808f34009189d&redirect_uri=http://localhost:8666/callback/gitee&response_type=code&state=1">-->
+<!--                        <img src="/images/gitee.png">-->
+<!--                    </a>-->
+
+                    <a href="https://gitee.com/oauth/authorize?client_id=297f2d6977941e7e464986e04fe3ea17d044edddef4625602de808f34009189d&redirect_uri=http://120.77.94.129:8666/callback/gitee&response_type=code&state=1">
                         <img src="/images/gitee.png">
                     </a>
                 </div>
